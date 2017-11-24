@@ -1,11 +1,9 @@
 import React from 'react';
 
-const NoMatch = () => {
-  return (
+const NoMatch = () => (
     <main>
-      <h2 className="App-main-title">Error 404! Requested page does not exist</h2>
+      <h2 className="App-main-title">Error 404! Requested page does not exists</h2>
     </main>
     );
-}
 
 export default NoMatch;
