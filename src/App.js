@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
-import { Route, BrowserRouter, NavLink, Switch } from 'react-router-dom';
-import createBrowserHistory from 'history/createBrowserHistory';
-import logo from './logo.svg';
-import './App.css';
-import Main from './main/Main';
-import Footer from './footer/Footer';
-import Contacts from './contacts/Contacts';
-import NoMatch from './nomatch/NoMatch';
+import React, { Component } from "react";
+import { Route, BrowserRouter, NavLink, Switch } from "react-router-dom";
+import createBrowserHistory from "history/createBrowserHistory";
+import "./App.css";
+import "./Normalize.css";
+import Header from "./header/Header";
+import Main from "./main/Main";
+import Footer from "./footer/Footer";
+import Contacts from "./contacts/Contacts";
+import NoMatch from "./nomatch/NoMatch";
+import Login from "./login/Login";
 
 const history = createBrowserHistory();
 
@@ -15,22 +17,22 @@ class App extends Component {
     return (
       <BrowserRouter history={history}>            
         <div className="App">
-          <header className="App__header">
-            <img src={logo} className="App__logo" alt="logo" />
-            <h1 className="App__title">Welcome to knowledge testing portal!</h1>
-            <ul className="App__menu">
-              <li><NavLink  className='App__menuitem' activeClasssName='App__menuitem-active' to = '/'>Home</NavLink></li>
-              <li><NavLink  className='App__menuitem' activeClasssName='App__menuitem-active' to = '/Contacts'>Contacts</NavLink></li>
-              {/*<li><NavLink  className='App__menuitem' activeClasssName='App__menuitem-active' to = '/'>Home</NavLink></li>
-              <li><NavLink  className='App__menuitem' activeClasssName='App__menuitem-active' to = '/'>Home</NavLink></li>
-              <li><NavLink  className='App__menuitem' activeClasssName='App__menuitem-active' to = '/'>Home</NavLink></li>*/}
-            </ul>             
-          </header>
+          <Header />          
+          <nav className="menucontainer">
+            <ul className="navbar">
+              <li><NavLink  className="navbar__item" activeClasssName="navbar__item-active" to="/">Home</NavLink></li>
+              <li><NavLink  className="navbar__item" activeClasssName="navbar__item-active" to="/Contacts">Contacts</NavLink></li>
+              <li><NavLink  className="navbar__item" activeClasssName="navbar__item-active" to="/Gallery">Graduates Gallery</NavLink></li>
+              <li><NavLink  className="navbar__item" activeClasssName="navbar__item-active" to="/Contacts">Contacts</NavLink></li>
+              <li><NavLink  className="navbar__item" activeClasssName="navbar__item-active" to="/Contacts">Contacts</NavLink></li>              
+            </ul>
+          </nav>
           <Switch>
-            <Route exact path='/' component={Main} />
-            <Route path='/Contacts' component={Contacts} />
-            <Route exact component={NoMatch} />
-          </Switch>                  
+            <Route exact path="/" component={Main} />
+            <Route path="/Contacts" component={Contacts} />
+            <Route path="/Login" component={Login} />
+            <Route component={NoMatch} />
+          </Switch>
           <Footer />
           </div>        
       </BrowserRouter>

@@ -1,11 +1,17 @@
 import React from 'react';
+import Gallery from "../gallery/Gallery";
 
-const Contacts = () => {
-    return (
-        <div className="App-contacts">
-            this is the Contact component
-        </div>
-    );
-}
+let urls = [
+  '../gallery/img/1.JPG',
+  '../gallery/img/2.JPG',
+  '../gallery/img/3.JPG'
+];
+
+const Contacts = () => (
+  <div className="contacts">
+    this is the Contact component
+    <Gallery imageUrls={urls}/>
+  </div>
+);
 
 export default Contacts;
