@@ -112,6 +112,20 @@
   content: ' | ';
 }*/
 
+/* Gallery styling */
+
+.gallery {
+  margin: 0px auto;
+  width: 80%;
+  display: flex;
+  align-content: space-between;
+  flex-wrap: wrap;
+}
+
+.gallery__image {
+  width: 200px;
+}
+
 /* Footer styling */
 
 .footer {

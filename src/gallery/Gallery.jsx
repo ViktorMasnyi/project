@@ -5,7 +5,7 @@ class Gallery extends React.Component {
     renderImage(imageUrl) {
     return (
       <div>
-        <img src={imageUrl} alt="gallery image" />
+        <img className="gallery__image" src={imageUrl} alt="gallery image" />
       </div>
     );
   }
@@ -13,9 +13,7 @@ class Gallery extends React.Component {
   render() {
     return (
       <div className="gallery">
-        <div className="images">
-          {this.props.imageUrls.map(imageUrl => this.renderImage(imageUrl))}
-        </div>
+        {this.props.imageUrls.map(imageUrl => this.renderImage(imageUrl))}
       </div>
     );
   }
