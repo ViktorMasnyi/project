@@ -6,15 +6,19 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
 
-/*html, body, .App {
-    height:100%;
-    margin:0;
-}*/
+#root {
+   display:flex;
+}
 
 .App {
-  display: flex;
+  /*display: flex;
   flex-direction: column;
-  text-align: center;
+  min-height: 100vh;
+  text-align: center;*/
+  min-height:100vh;
+  width:100%;
+  display:flex;
+  flex-direction:column;
   font-family: 'Didact Gothic', Helvetica, sans-serif;
 }
 
@@ -22,7 +26,8 @@
   display: flex;
   align-content: flex-start;
   align-items: center;
-  min-width: 340px; /*  !!! need to disallow word wrapping on page resize */
+  min-width: 340px;
+  white-space: nowrap;  /* need to disallow word wrapping on page resize */
 }
 
 .logo__img {
@@ -39,22 +44,34 @@
 .header {
   width: 100%;
   background-color: #f8f8f8;
-  height: 80px;
+  width: 100%;    
   display: flex;
-  align-items: center;
-  align-content: space-between;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0 10px;
+  box-sizing: border-box;
   color: #434;
   box-shadow: 0 3px 6px rgba(0,0,0,.75);
+  position: sticky;
+  top: 0;
+}
+
+.header__items {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  /*align-content: flex-end;*/
 }
 
 .header__input, .loginpage_item {
   border: none;
   /*height: 3em;*/
   border-radius: 4px;
-  text-align: center;
+  /*text-align: center;*/
   font-size: 1.5em;
-  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.06);
-  
+  margin: 0 20px;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.06);  
 }
 
 .header__login {
@@ -70,18 +87,14 @@
   font-size: large;
 }
 
-main, .main {
+.main {
+  flex-grow:1;
+  /*flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;*/
   display: flex;
-  flex-direction: column;
-}
-
-main > form, .main > form {
-  flex: 1;
-  display: flex;
+  align-items: center;
   justify-content: center;
-  flex-direction: column;
-  /*padding-top: 15%;
-  padding-bottom: 15%;*/
 }
 
 /* Main menu styling */
@@ -91,25 +104,46 @@ main > form, .main > form {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 30px;
+  /*height: 30px;*/
   background-color: #434;
   /*opacity: .9;*/
   box-shadow: 0 3px 6px rgba(0,0,0,.75);
   position: sticky;
-  top: 0;
+  top: 80px;
+  padding: 10px 0;
 }
 
+/* Large screen */
 .navbar {
   width: 100%;    
   display: flex;
+  flex-flow: row wrap;
   justify-content: center;
   list-style-type: none;
   padding: 0px 10px;
 }
 
+/* Medium screen */
+@media all and (max-width: 800px) {
+  .navbar {
+    /* When on medium sized screens, we center it by evenly distributing empty space around items */
+    justify-content: space-around;
+  }
+  .header {
+    justify-content: space-around;
+  }
+  
+}
+
+/* Small screens */
+@media all and (max-width: 500px) {
+  .navbar {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+
 .navbar .navbar__item {
-  display: flex;   
-  align-items: center;
   margin-right: 20px;
   text-decoration: none;
   color: #a9a9a9; 
@@ -122,17 +156,21 @@ main > form, .main > form {
   transition: .4s;
 }
 
+/*.navbar__item-active {
+  color: #f00;
+}*/
+
 /*.navbar .navbar__item:not(:first-child)::before {
   content: '| ';
 }*/
 
-.navbar__item::before {
+/*.navbar__item::before {
   content: ' | ';
 }
 
 .navbar__item::after {
   content: ' | ';
-}
+}*/
 
 /* Gallery styling - TO ADD MASONRY*/
 
@@ -142,6 +180,8 @@ main > form, .main > form {
   padding: 10px;
   width: 80%;
   display: flex;
+  align-items: center;
+  justify-content: center;
   align-items: stretch;
   align-content: space-between;
   flex-wrap: wrap;
@@ -155,7 +195,7 @@ main > form, .main > form {
 /* Login page */
 
 .loginpage {
-  margin: 0px auto;
+  /*margin: 0px auto;*/
   width: 400px;
   display: flex;
   flex-direction: column;
@@ -181,14 +221,34 @@ main > form, .main > form {
 .footer {
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 100%;
   height: 60px;
   background-color: #f8f8f8;
   color: #434;
-  opacity: .7;
-  box-shadow: 0 3px 6px rgba(0,0,0,.75);
 }
 
 .footer__copy {
-  display: block;
+  /*display: block;*/
+}
+
+/* Breadcrumbs */
+
+
+/* Slider  - TO FIX HEIGHT OF THE SLIDER!!! */
+
+.slider {
+  min-height:100vh;
+  width:100%;
+  display:flex;
+  /*margin: 0 auto;*/
+  /*height: 100%;*/
+  /*overflow: hidden;
+  white-space: nowrap;*/
+}
+
+.slide {
+  flex-grow:1;
+  /*min-height: 65vh;
+  width: 100%;*/
 }

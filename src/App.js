@@ -24,7 +24,7 @@ class App extends Component {
               <li><NavLink  className="navbar__item" activeClasssName="navbar__item-active" to="/Contacts">Contacts</NavLink></li>
               <li><NavLink  className="navbar__item" activeClasssName="navbar__item-active" to="/Gallery">Graduates Gallery</NavLink></li>
               <li><NavLink  className="navbar__item" activeClasssName="navbar__item-active" to="/Contacts">Contacts</NavLink></li>
-              <li><NavLink  className="navbar__item" activeClasssName="navbar__item-active" to="/Contacts">Contacts</NavLink></li>              
+              <li><NavLink  className="navbar__item" activeClasssName="navbar__item-active" to="/Login">Login</NavLink></li>              
             </ul>
           </nav>
           <Switch>
@@ -32,7 +32,7 @@ class App extends Component {
             <Route path="/Contacts" component={Contacts} />
             <Route path="/Login" component={Login} />
             <Route component={NoMatch} />
-          </Switch>
+          </Switch>    
           <Footer />
           </div>        
       </BrowserRouter>
