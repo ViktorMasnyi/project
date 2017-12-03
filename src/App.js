@@ -20,11 +20,11 @@ class App extends Component {
           <Header />          
           <nav className="menucontainer">
             <ul className="navbar">
-              <li><NavLink  className="navbar__item" activeClasssName="navbar__item-active" to="/">Home</NavLink></li>
-              <li><NavLink  className="navbar__item" activeClasssName="navbar__item-active" to="/Contacts">Contacts</NavLink></li>
-              <li><NavLink  className="navbar__item" activeClasssName="navbar__item-active" to="/Gallery">Graduates Gallery</NavLink></li>
-              <li><NavLink  className="navbar__item" activeClasssName="navbar__item-active" to="/Contacts">Contacts</NavLink></li>
-              <li><NavLink  className="navbar__item" activeClasssName="navbar__item-active" to="/Login">Login</NavLink></li>              
+              <li><NavLink  className="navbar__item" activeClassName="navbar__item-active" to="/">Home</NavLink></li>
+              <li><NavLink  className="navbar__item" activeClassName="navbar__item-active" to="/Contacts">Contacts</NavLink></li>
+              <li><NavLink  className="navbar__item" activeClassName="navbar__item-active" to="/Gallery">Graduates Gallery</NavLink></li>
+              <li><NavLink  className="navbar__item" activeClassName="navbar__item-active" to="/Contacts">Contacts</NavLink></li>
+              <li><NavLink  className="navbar__item" activeClassName="navbar__item-active" to="/Login">Login</NavLink></li>              
             </ul>
           </nav>
           <Switch>

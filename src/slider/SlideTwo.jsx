@@ -3,7 +3,7 @@ import React from 'react';
 const SlideOne= (props) => {
   
   let background = {
-    backgroundImage: 'url("img/Slider1.png")',
+    backgroundImage: 'url("img/Slider2.png")',
     backgroundSize: 'cover',
     backgroundPosition: 'center'
   }

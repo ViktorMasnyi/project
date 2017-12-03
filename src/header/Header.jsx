@@ -8,8 +8,8 @@ const Header = () => (
       <p className="logo__name">Omni tester</p>
     </div>
     <div className="header__items">
-      <input className="header__input" value="" placeholder="find your test" />
-      <a className="header__login" href="Login">Login</a>
+      <input className="header__input" value="" placeholder="найти тест" />
+      <a className="header__login link" href="Login">Войти</a>
     </div>
   </header>
 );

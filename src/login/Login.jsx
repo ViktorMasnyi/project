@@ -7,7 +7,8 @@ const Login = () => (
       <input className="loginpage_item"  name="login" type="text" value="" />
       <label className="loginpage_label" htmlFor="password">Пароль</label>
       <input className="loginpage_item" name="password" type="text" value="" />
-      <input className="loginpage_item" type="submit" value="submit" />
+      <input className="loginpage_item" type="submit" value="Войти" />
+      <a className="link" href="Login/Signup">Зарегистрироваться</a>
     </form>
   </main>
 );
