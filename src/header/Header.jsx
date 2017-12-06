@@ -3,10 +3,12 @@ import logo from "./logo.png";
 
 const Header = () => (
   <header className="header">
-    <div className="logo">
+    <a className="link" href="/">
+      <div className="logo">
       <img src={logo} className="logo__img" alt="Omni tester" />
       <p className="logo__name">Omni tester</p>
     </div>
+    </a>
     <div className="header__items">
       <input className="header__input" value="" placeholder="найти тест" />
       <a className="header__login link" href="Login">Войти</a>
