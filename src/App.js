@@ -7,6 +7,7 @@ import Header from "./header/Header";
 import Main from "./main/Main";
 import Footer from "./footer/Footer";
 import Contacts from "./contacts/Contacts";
+import Gallery from "./gallery/Gallery";
 import NoMatch from "./nomatch/NoMatch";
 import Login from "./login/Login";
 
@@ -31,8 +32,9 @@ class App extends Component {
             <Route exact path="/" component={Main} />
             <Route path="/Contacts" component={Contacts} />
             <Route path="/Login" component={Login} />
+            <Route path="/Gallery" component={Gallery} />
             <Route component={NoMatch} />
-          </Switch>    
+          </Switch>
           <Footer />
           </div>        
       </BrowserRouter>

@@ -1,20 +1,34 @@
 import React from 'react';
+
+let imageUrls=[
+  'img/1.JPG',
+  'img/2.JPG',
+  'img/3.JPG',
+  'img/4.JPG',
+  'img/5.JPG',
+  'img/1.JPG',
+  'img/2.JPG',
+  'img/3.JPG',
+  'img/4.JPG',
+  'img/5.JPG'
+];
  
 class Gallery extends React.Component {
-  // implementation will go here 
     renderImage(imageUrl) {
-    return (
-      <div>
-        <img className="gallery__image" src={imageUrl} alt="gallery" />
-      </div>
+      return (
+        <div>
+          <img className="gallery__image" src={imageUrl} alt="gallery" />
+        </div>
     );
   }
  
   render() {
     return (
-      <div className="gallery">
-        {this.props.imageUrls.map(imageUrl => this.renderImage(imageUrl))}
-      </div>
+      <main className="main">
+        <div className="gallery">
+          {imageUrls.map(imageUrl => this.renderImage(imageUrl))}
+        </div>
+      </main>
     );
   }
 }

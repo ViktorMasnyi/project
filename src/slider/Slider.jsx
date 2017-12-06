@@ -1,40 +1,64 @@
 import React, { Component } from "react";
-import SlideOne from '../slider/SlideOne';
-import SlideTwo from '../slider/SlideTwo';
-import SlideThree from '../slider/SlideThree';
+import Slide from '../slider/Slide';
 
+let imagesUrl=[
+  'img/Slider1.png',
+  'img/Slider2.png',
+  'img/Slider3.png'
+];
 class Slider extends Component {
   constructor(props) {
     super(props);      
     this.state = {
-      slideCount: 0,
-      currentSlide: 0,
-      maxSlide: 2,
-      i: 0
-    };
-    this.nextSlide = this.nextSlide.bind(this);  //why?
+      images: [],
+      index: 0,
+      translateValue: 0
+    };  
+    this.goToNextSlide = this.goToNextSlide.bind(this);
   }
-  
-  nextSlide() {
-    if (this.state.currentSlide < this.state.maxSlide) {     
-      this.setState({ currentSlide: this.state.currentSlide + 1 });      
-    }
-    else this.setState({ currentSlide: 0 });
+  renderSlides = () => {
+    const images = imagesUrl;
+    let slides = [];
+    for(let i = 0; i < images.length; i++) 
+      slides.push(<Slide key={i} image={images[i]} />)      
+    return slides
   }
   componentDidMount() {
-    setInterval(this.nextSlide, 3000);
+    let timerID=setInterval(this.goToNextSlide, 3000);
   }
   componentWillUnmount() {
     clearInterval(this.timerID);
   }
   render() {
+    const { translateValue } = this.state
     return (
       <div className="slider">
-        { this.state.currentSlide === 0 ? <SlideOne /> : null }
-        { this.state.currentSlide === 1 ? <SlideTwo /> : null }
-        { this.state.currentSlide === 2 ? <SlideThree /> : null }
+        <div className="slider-wrapper"
+          style={{
+            transform: `translateX(${translateValue}px)`,
+            transition: 'transform ease-out 0.5s'
+          }}>
+          { this.renderSlides() }
+        </div>        
       </div>
     )
+  }
+  goToNextSlide = () => {
+    const images = imagesUrl;
+    if(this.state.index === images.length - 1) {
+      return this.setState({
+        translateValue: 0,
+        index: 0
+      })
+    }
+    this.setState({
+      translateValue: this.state.translateValue -= this.slideWidth(),
+      index: this.state.index += 1
+    })
+  }
+  slideWidth = () => {
+    const slide = document.getElementById('root');    
+    return slide.clientWidth
   }
 }
 
