@@ -1,8 +1,6 @@
 import React from 'react';
 import Gallery from "../gallery/Gallery";
-import MyMapComponent from "../contacts/MyMapComponent"
-
-let googlemapkey="AIzaSyCZ1mb117y5IUWlYqHRpajl6bxhrCQeuGI";
+import MyMapComponent from "./MyMapComponent";
 
 let urls=[
   'img/1.JPG',

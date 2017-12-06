@@ -5,7 +5,7 @@ class Gallery extends React.Component {
     renderImage(imageUrl) {
     return (
       <div>
-        <img className="gallery__image" src={imageUrl} alt="gallery image" />
+        <img className="gallery__image" src={imageUrl} alt="gallery" />
       </div>
     );
   }
