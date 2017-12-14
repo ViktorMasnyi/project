@@ -36,7 +36,7 @@
 
 .logo__name {
   color: #2d7c06; 
-  font-family: Helvetica, sans-serif;
+  font-family: 'Didact Gothic', Helvetica, sans-serif;
   font-size: 3em;
   font-weight: 600; 
 }
@@ -178,7 +178,7 @@
 @media all and (max-width: 800px) {
   .navbar {
     /* When on medium sized screens, we center it by evenly distributing empty space around items */
-    justify-content: space-around;
+    justify-content: space-between;
   }
   .header {
     justify-content: space-around;
@@ -191,6 +191,8 @@
   .navbar {
     /* On small screens, we are no longer using row direction but column */
     flex-direction: column;
+    justify-content: center;
+    line-height: 150%;
   }
   .header__items {
     flex-direction: column;

@@ -24,7 +24,7 @@ class Slider extends Component {
     return slides
   }
   componentDidMount() {
-    let timerID=setInterval(this.goToNextSlide, 3000);
+    this.timerID=setInterval(this.goToNextSlide, 3000);
   }
   componentWillUnmount() {
     clearInterval(this.timerID);
