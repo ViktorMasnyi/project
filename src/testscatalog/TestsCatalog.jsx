@@ -1,113 +1,13 @@
 import React, { Component } from "react";
-import testsList from "../test/testsList";
+// import testsList from "../test/testsList";
 
 class TestsCatalog extends Component {
   constructor(props) {
     super(props);      
-    this.state = {
-      tests: [
-        {
-          'topicName': 'Java',
-          'tests': [
-            { 
-              name: 'Java Basics',
-              timeLimit: 30, 
-              questions: [ 
-                {
-                  type: 'single', 
-                  question: 'what is Java?',
-                  ansVariant1: 'first  var',
-                  ansVariant2: 'second var', 
-                  ansVariant3: 'third var',
-                  answer: ['first  var'  ]
-                },  
-                {
-                  type: 'multy', 
-                  question: 'who is Jesus?',
-                  ansVariant1: 'first  var',
-                  ansVariant2: 'second var', 
-                  ansVariant3: 'third var',
-                  answer: ['first  var', 'third var']
-                }
-              ]
-            },
-            { 
-              name: 'Java Advanced',
-              timeLimit: 20, 
-              questions: [ 
-                {
-                  type: 'single', 
-                  question: 'what is Java?',
-                  ansVariant1: 'first  var',
-                  ansVariant2: 'second var', 
-                  ansVariant3: 'third var',
-                  answer: ['third var']  
-                },  
-                {
-                  type: 'multy', 
-                  question: 'who is Jesus?',
-                  ansVariant1: 'first  var',
-                  ansVariant2: 'second var', 
-                  ansVariant3: 'third var',
-                  answer: ['first  var', 'third var']
-                }
-              ]
-            }
-          ]
-        },
-        {
-          'topicName': 'Javascript',
-          'tests': [
-            { 
-              name: 'Javascript Basics',
-              timeLimit: 30, 
-              questions: [ 
-                {
-                  type: 'single', 
-                  question: 'what is Javascript?',
-                  ansVariant1: 'first  var',
-                  ansVariant2: 'second var', 
-                  ansVariant3: 'third var',
-                  answer: ['first  var'  ]
-                },  
-                {
-                  type: 'multy', 
-                  question: 'who is Jesus?',
-                  ansVariant1: 'first  var',
-                  ansVariant2: 'second var', 
-                  ansVariant3: 'third var',
-                  answer: ['first  var', 'third var']
-                }
-              ]
-            },
-            { 
-              name: 'Javascript Advanced',
-              timeLimit: 20, 
-              questions: [ 
-                {
-                  type: 'single', 
-                  question: 'what is Javascript?',
-                  ansVariant1: 'first  var',
-                  ansVariant2: 'second var', 
-                  ansVariant3: 'third var',
-                  answer: ['third var']  
-                },  
-                {
-                  type: 'multy', 
-                  question: 'who is Jesus?',
-                  ansVariant1: 'first  var',
-                  ansVariant2: 'second var', 
-                  ansVariant3: 'third var',
-                  answer: ['first  var', 'third var']
-                }
-              ]
-            }
-          ]
-        }
-      ]      
+    this.state = props;
+            
     };      
-  }
-
+  
   componentDidMount() {
     
   }
@@ -119,7 +19,13 @@ class TestsCatalog extends Component {
     return (
       <main className="main">
         <div className="catalog">
-           <testslist  tests={this.state.tests}/>   
+           <ul>
+            {
+              this.state.tests.map(function(testGroup) {
+                return <li key={testGroup.topicName}>Test theme: {testGroup.topicName}</li>
+              })
+            }
+          </ul>   
         </div>
       </main>
     )
