@@ -23,8 +23,8 @@ class App extends Component {
   TestsCatalogWithProps = (props) => {
     return (
       <TestsCatalog
-        {...props}
-        tests={this.state.tests}
+        {...props} // ????
+        test={this.state.test}
       />
     );
   }

@@ -1,5 +1,5 @@
 const initState = {
-    tests: [
+    test: [
     {
       'topicName': 'Java',
       'tests': [
@@ -13,7 +13,7 @@ const initState = {
               ansVariant1: 'first  var',
               ansVariant2: 'second var', 
               ansVariant3: 'third var',
-              answer: ['first  var'  ]
+              answer: ['first  var']
             },  
             {
               type: 'multy', 

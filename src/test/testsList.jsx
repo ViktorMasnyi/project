@@ -5,8 +5,11 @@ const testsList = ({ tests }) => {
     <div>
       <ul>
         {
-          tests.map(function(testGroup) {
-            return <li>Test theme: {testGroup.topicName}</li>
+          tests.map(function(tests, id) {
+            return <li key={id}>Test name: {tests.name}
+              <p>duration: {tests.timeLimit} min.</p>
+              <br/>
+            </li>
           })
         }
       </ul>

@@ -10,7 +10,7 @@ const Header = () => (
     </div>
     </a>
     <div className="header__items">
-      <input className="header__input" value="" placeholder="найти тест" />
+      <input className="header__input" type="text" placeholder="найти тест" />
       <a className="header__login link" href="Login">Войти</a>
     </div>
   </header>
