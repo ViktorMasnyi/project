@@ -34,6 +34,7 @@ class App extends Component {
     );
   }
   render() {
+    //alert(this.state.testValue);
     return (
       <BrowserRouter history={history}>            
         <div className="App">
