@@ -6,8 +6,7 @@ class TestsCatalog extends Component {
     super(props);      
     this.state = props;
     this.handleSearch = this.handleSearch.bind(this);        
-    };      
-  
+    };     
   componentDidMount() {
     
   }
@@ -17,16 +16,20 @@ class TestsCatalog extends Component {
   handleSearch = function(event) {
     var searchQuery = event.target.value.toLowerCase();
     var foundTests;
-    var displayedTests = this.state.test.map((testGroup, id) => {
-      testGroup.tests.map(function(test) {
-        console.log(test.name);
-        if (test.name == searchQuery) console.log(test.name)})
+    console.log(this.props);
+    var displayedTests = this.props.test.map((testGroup, id) => { //was this.state.test
+      testGroup.tests.map(function(test) {        
+        console.log(test.name);          
+              
+        if (test.name === searchQuery) console.log(test.name)
+        return true;
+      })
       //console.log(testGroup);
+      return true;
     });
     event.preventDefault();
   }
-  render() {
-    
+  render() {        
     return (
       <main className="main">
         <div className="catalog">
@@ -36,7 +39,7 @@ class TestsCatalog extends Component {
           </form>
            <ul>
             {
-              this.state.test.map(function(testGroup, id) {
+              this.props.test.map(function(testGroup, id) { //was this.state.test
                 return (
                   <div key={id}><li>Test theme: {testGroup.topicName}</li>
                   <TestsList tests={testGroup.tests}/>

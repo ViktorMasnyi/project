@@ -18,12 +18,17 @@ const history = createBrowserHistory();
 class App extends Component {
   constructor (props) {
     super(props);
-    this.state = initState; 
+    this.state = initState;
+    this.state.testValue = false;
+    this.testCallback = this.testCallback.bind(this); 
   };
+  testCallback = function () {this.setState({testValue: true})};
+  
   TestsCatalogWithProps = (props) => {
     return (
       <TestsCatalog
         {...props} // ????
+        testCallback={this.testCallback}
         test={this.state.test}
       />
     );
