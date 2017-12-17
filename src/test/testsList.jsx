@@ -6,7 +6,7 @@ const testsList = ({ tests }) => {
       <ul>
         {
           tests.map(function(tests, id) {
-            return <li key={id}>Test name: {tests.name}
+            return <li key={id}>{tests.name}
               <p>duration: {tests.timeLimit} min.</p>
               <br/>
             </li>

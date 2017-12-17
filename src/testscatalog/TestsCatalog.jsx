@@ -1,69 +1,70 @@
 import React, { Component } from "react";
+import TestsAll from "./TestsAll";
 import TestsList from "../test/TestsList";
 
 class TestsCatalog extends Component {
   constructor(props) {
-    super(props);      
-    //this.state = props;
-    this.state = {foundTests: []};
-    this.handleSearch = this.handleSearch.bind(this);        
-    };     
-  componentDidMount() {
-    
+    super(props); 
+    this.state = {isSearchActive: false};  
+  };
+
+  handleChange = (event) => {
+    this.props.handleSearch(event.target.value);
+    this.setState({isSearchActive: true});
+  };
+
+  handleReset = () => {
+    this.props.handleReset();
+    this.setState({isSearchActive: false});
   }
-  componentWillUnmount() {
-    
-  }
-  handleSearch = function(event) {
-    var searchQuery = event.target.value.toLowerCase();
-    var foundT = [];
-    //console.log(this.props);
-    var displayedTests = this.props.test.map((testGroup, id) => { //was this.state.test
-      testGroup.tests.map(function(test) {
-        //console.log(test.name);           
-        if (test.name.toLowerCase().indexOf(searchQuery) !== - 1) {
-          foundT.push(test);
-          //console.log(this.state.foundTests);
-        }
-        return 1;
-      });
-      console.log(foundT);                      
-      this.setState({foundTests: foundT});
-      return 2;
-    });
-    console.log(displayedTests);
-    event.preventDefault();
-  }
-  render() {            
+  
+  render() {
+    console.log(this.props);
+    let isSearchActive = this.state.isSearchActive;
+    let renderAllTests = null;           
+    if (!isSearchActive) {
+      renderAllTests = <TestsAll test={this.props.test} />;
+    } else {
+      renderAllTests = null;
+    }
+    console.log('renderAllTests: ' ,renderAllTests);
+    console.log('isSearchActive: ' ,isSearchActive);
     return (
       <main className="main">
         <div className="catalog">
           <form action="">
-            <input className="header__input" type="text" onChange={this.handleSearch} placeholder="найти тест" />
-            <input className="header__input" type="reset" value="reset" />
+            <input className="header__input" type="text" onChange={this.handleChange} placeholder="найти тест" />
+            <input className="header__input" type="reset" onClick={this.handleReset} value="X" />
+            {/*<button onClick={this.props.testCallback}>testCallback [current value: {this.props.testValue}]</button>*/}
           </form>
+          {renderAllTests}
           
-           <ul>
+          {/*<ul>
             {
               this.props.test.map(function(testGroup, id) { //was this.state.test
                 return (
                   <div key={id}><li>Test theme: {testGroup.topicName}</li>
-                  <TestsList tests={testGroup.tests}/>
+                  <TestsList tests={testGroup.tests} />
                   <br/>
                 </div>
                 )
               })
             }
+          </ul>   */}
+          <h2>Found Tests</h2>
+          <TestsList tests={this.props.foundTests} />
+          <h2>Found tests topics</h2>
+          <ul>
+            {              
+              this.props.foundGroups.map(function(testGroup, id) {
+                return <li key={id}>Test theme: {testGroup.topicName}</li>
+              })             
+            }
           </ul>   
         </div>
-        <hr/>
-        <h2>Found Tests</h2>
-        <TestsList tests={this.state.foundTests}/>
-        <button onClick={this.props.testCallback}>testCallback</button>
       </main>
     )
-  }
-  
+  }  
 }
 
 export default TestsCatalog;

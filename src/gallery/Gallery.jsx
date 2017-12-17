@@ -14,9 +14,9 @@ let imageUrls=[
 ];
  
 class Gallery extends React.Component {
-    renderImage(imageUrl) {
+    renderImage(imageUrl, id) {
       return (
-        <div>
+        <div key={id}>
           <img className="gallery__image" src={imageUrl} alt="gallery" />
         </div>
     );
@@ -26,7 +26,7 @@ class Gallery extends React.Component {
     return (
       <main className="main">
         <div className="gallery">
-          {imageUrls.map(imageUrl => this.renderImage(imageUrl))}
+          {imageUrls.map((imageUrl, id) => this.renderImage(imageUrl, id))}
         </div>
       </main>
     );

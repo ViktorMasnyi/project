@@ -52,8 +52,8 @@ class Slider extends Component {
       })
     }
     this.setState({
-      translateValue: this.state.translateValue -= this.slideWidth(),
-      index: this.state.index += 1
+      translateValue: this.state.translateValue - this.slideWidth(),
+      index: this.state.index + 1   
     })
   }
   slideWidth = () => {
