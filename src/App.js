@@ -19,15 +19,11 @@ class App extends Component {
   constructor (props) {
     super(props);
     this.state = initState;
-    this.state.testValue = 0;
     this.state.foundTests = [];
     this.state.foundGroups = [];
     this.handleSearch = this.handleSearch.bind(this);
     this.handleReset = this.handleReset.bind(this);
-    this.testCallback = this.testCallback.bind(this); 
   };
-
-  testCallback = function () {this.setState({testValue: this.state.testValue + 1})};
 
   handleSearch = function(value) {
     var searchQuery = value;
@@ -51,8 +47,6 @@ class App extends Component {
       });
       return true;
     });
-    console.log('foundG: ', foundG);
-    console.log('foundT: ', foundT);
   };
 
   handleReset = () => {
@@ -62,22 +56,19 @@ class App extends Component {
       });
   }
 
-  TestsCatalogWithProps = (props) => {
+  TestsCatalogWithProps = () => {
     return (
       <TestsCatalog
-        {...props} // ????
         handleSearch={this.handleSearch}
         handleReset={this.handleReset}
-        testCallback={this.testCallback}
-        testValue={this.state.testValue}
         foundTests={this.state.foundTests}
         foundGroups={this.state.foundGroups}
         test={this.state.test}
       />
     );
   }
+
   render() {
-    //alert(this.state.testValue);
     return (
       <Router history={history}>
         <div className="App">

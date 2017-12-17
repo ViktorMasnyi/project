@@ -2,7 +2,7 @@ import React from 'react';
 import TestsList from "../test/TestsList";
 
 const TestsAll = ({test}) => {
-  console.log('testAll', test);
+  //console.log('testAll', test);
   return (
     <ul>
       {
