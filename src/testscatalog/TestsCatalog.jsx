@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import TestsAll from "./TestsAll";
-import TestsList from "../test/TestsList";
 import SearchResult from "./SearchResult";
 
 class TestsCatalog extends Component {
@@ -10,17 +9,17 @@ class TestsCatalog extends Component {
   };
 
   handleChange = (event) => {
-    this.props.handleSearch(event.target.value);
-    this.setState({isSearchActive: true});
+    this.props.handleSearch(event.target.value, true);
+    //this.setState({isSearchActive: true});
   };
 
   handleReset = () => {
     this.props.handleReset();
-    this.setState({isSearchActive: false});
+    //this.setState({isSearchActive: false});
   }
   
   render() {
-    let isSearchActive = this.state.isSearchActive;
+    let isSearchActive = this.props.isSearchActive;
     let renderAllTests = null;           
     if (!isSearchActive) {
       renderAllTests = <TestsAll test={this.props.test} />;
@@ -30,10 +29,10 @@ class TestsCatalog extends Component {
     return (
       <main className="main">
         <div className="catalog">
-          <form action="">
+          {/*<form action="">
             <input className="header__input" type="text" onChange={this.handleChange} placeholder="найти тест" />
-            <input className="header__input" type="reset" onClick={this.handleReset} value="X" />
-          </form>
+            <input className="header__input header__reset" type="reset" onClick={this.handleReset} value="X" />
+          </form>*/}
           {renderAllTests}
         </div>
       </main>

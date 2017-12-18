@@ -2,7 +2,6 @@ import React from 'react';
 import TestsList from "../test/TestsList";
 
 const SearchResult = (props) => {
-  console.log('SResult: ', props);
   return (
     <div>
       <h2>Search results:</h2>

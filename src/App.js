@@ -21,12 +21,13 @@ class App extends Component {
     this.state = initState;
     this.state.foundTests = [];
     this.state.foundGroups = [];
+    this.state.isSearchActive = false;
     this.handleSearch = this.handleSearch.bind(this);
     this.handleReset = this.handleReset.bind(this);
   };
 
-  handleSearch = function(value) {
-    var searchQuery = value;
+  handleSearch = function(searchStr, isSearchActive) {
+    var searchQuery = searchStr;
     //console.log('app haldle search: ', value);
     var foundT = [];
     var foundG = [];
@@ -43,7 +44,8 @@ class App extends Component {
       });                     
       this.setState({
         foundTests: foundT,
-        foundGroups: foundG
+        foundGroups: foundG,
+        isSearchActive: true
       });
       return true;
     });
@@ -52,7 +54,8 @@ class App extends Component {
   handleReset = () => {
     this.setState({
       foundTests: [],
-      foundGroups: []
+      foundGroups: [],
+      isSearchActive: false
       });
   }
 
@@ -63,6 +66,7 @@ class App extends Component {
         handleReset={this.handleReset}
         foundTests={this.state.foundTests}
         foundGroups={this.state.foundGroups}
+        isSearchActive={this.state.isSearchActive}
         test={this.state.test}
       />
     );
@@ -72,7 +76,7 @@ class App extends Component {
     return (
       <Router history={history}>
         <div className="App">
-          <Header />          
+          <Header props={this.props} handleSearch={this.handleSearch} handleReset={this.handleReset} />          
           <nav className="menucontainer">
             <ul className="navbar">
               <li><NavLink  className="navbar__item" activeClassName="navbar__item-active" to="/">Главная</NavLink></li>
