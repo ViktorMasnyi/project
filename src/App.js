@@ -73,6 +73,12 @@ class App extends Component {
     );
   }
 
+  TestWithProps = (props) => {
+      return (
+        <Test {...props} test={this.state.test}  />
+      );
+    } 
+
   render() {
     return (
       <Router history={history}>
@@ -98,7 +104,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Main} />
             <Route path="/Tests" render={this.TestsCatalogWithProps} />
-            <Route path="/Test/:nameId" component={Test} />
+            <Route path="/Test/:targetGroup/:nameId" render={this.TestWithProps} />
             <Route path="/Contacts" component={Contacts} />
             <Route path="/Login" component={Login} />
             <Route path="/Gallery" component={Gallery} />

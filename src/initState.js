@@ -1,10 +1,10 @@
 const initState = {
     test: [
-    {
-      'topicId': '0',
+    {                             // test Group
+      'topicId': '0', 
       'topicName': 'Java',
       'tests': [
-        { 
+        {                         // nameId
           nameId: 0,
           name: 'Java Basics',
           timeLimit: 30, 
