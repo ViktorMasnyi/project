@@ -1,9 +1,11 @@
 const initState = {
     test: [
     {
+      'topicId': '0',
       'topicName': 'Java',
       'tests': [
         { 
+          nameId: 0,
           name: 'Java Basics',
           timeLimit: 30, 
           questions: [ 
@@ -26,6 +28,7 @@ const initState = {
           ]
         },
         { 
+          nameId: 1,
           name: 'Java Advanced',
           timeLimit: 20, 
           questions: [ 
@@ -50,9 +53,11 @@ const initState = {
       ]
     },
     {
+      'topicId': '1',
       'topicName': 'Javascript',
       'tests': [
         { 
+          nameId: 2,
           name: 'Javascript Basics',
           timeLimit: 30, 
           questions: [ 
@@ -75,6 +80,7 @@ const initState = {
           ]
         },
         { 
+          nameId: 3,
           name: 'Javascript Advanced',
           timeLimit: 20, 
           questions: [ 
@@ -99,9 +105,11 @@ const initState = {
       ]
     },
     {
+      'topicId': '2',
       'topicName': 'C++',
       'tests': [
         { 
+          nameId: 4,
           name: 'C++ Basics',
           timeLimit: 30, 
           questions: [ 
@@ -124,6 +132,7 @@ const initState = {
           ]
         },
         { 
+          nameId: 5,
           name: 'C++ Advanced',
           timeLimit: 20, 
           questions: [ 
@@ -148,9 +157,11 @@ const initState = {
       ]
     },
     {
+      'topicId': '3',
       'topicName': 'Quality Assurance',
       'tests': [
         { 
+          nameId: 6,
           name: 'Quality Assurance Basics',
           timeLimit: 30, 
           questions: [ 
@@ -173,6 +184,7 @@ const initState = {
           ]
         },
         { 
+          nameId: 7,
           name: 'Quality Assurance Advanced',
           timeLimit: 20, 
           questions: [ 
@@ -197,9 +209,11 @@ const initState = {
       ]
     },
     {
+      'topicId': '4',
       'topicName': 'Python',
       'tests': [
         { 
+          nameId: 8,
           name: 'Python Basics',
           timeLimit: 30, 
           questions: [ 
@@ -222,6 +236,7 @@ const initState = {
           ]
         },
         { 
+          nameId: 9,
           name: 'Python Advanced',
           timeLimit: 20, 
           questions: [ 

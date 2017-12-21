@@ -282,6 +282,14 @@
   border: 1px solid #42b20a;
 }
 
+/* Contact Page */
+
+.contacts {
+  /*margin: 0px auto;*/
+  width: 90%;
+  z-index: 0;
+}
+
 /* Login page */
 
 .loginpage {

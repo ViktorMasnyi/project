@@ -5,6 +5,7 @@ import "./App.css";
 import "./Normalize.css";
 import Header from "./header/Header";
 import Main from "./main/Main";
+import Test from "./test/Test";
 import Footer from "./footer/Footer";
 import Contacts from "./contacts/Contacts";
 import Gallery from "./gallery/Gallery";
@@ -97,6 +98,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Main} />
             <Route path="/Tests" render={this.TestsCatalogWithProps} />
+            <Route path="/Test/:nameId" component={Test} />
             <Route path="/Contacts" component={Contacts} />
             <Route path="/Login" component={Login} />
             <Route path="/Gallery" component={Gallery} />
