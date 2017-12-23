@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Answer from "./Answer";
+import MyButton from "./MyButton";
 //import { NavLink } from "react-router-dom";
 
 class Test extends Component {
@@ -7,7 +8,8 @@ class Test extends Component {
     super(props); 
     this.state = {
       activeQuestion: {},
-      btnBgColor: "lightgreen"
+      activeIndex: null,
+      btnBgColor: null
     };
     this.handleActiveQuestion = this.handleActiveQuestion.bind(this);  
   };
@@ -16,7 +18,12 @@ class Test extends Component {
     this.setState({activeQuestion: {}});
   }
 
-  handleActiveQuestion = question => this.setState({ activeQuestion: question });
+  handleActiveQuestion = (question, id) => {
+    this.setState({ 
+      activeQuestion: question,
+      activeIndex: id 
+    })
+  };
 
   render () {    
     let targetGroup = this.props.match.params.targetGroup;  
@@ -39,15 +46,14 @@ class Test extends Component {
           <div className="test__questions">
             {
               targetTest.questions.map((question, id) =>
-                <button key={id} className="header__login link" style={{backgroundColor: this.state.btnBgColor}} 
+                <MyButton key={id} index={id} 
+                  isActive={ this.state.activeIndex===id }
                   onClick={() => {
-                    this.handleActiveQuestion(question);
-                    this.setState({})
-                  
+                    this.handleActiveQuestion(question, id);
                   }                  
                 }>
                   Question {id + 1}
-                </button>
+                </MyButton>
               )
             }
               {this.state.activeQuestion && <div className="test__question" children={this.state.activeQuestion.question} />}

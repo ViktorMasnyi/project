@@ -299,6 +299,14 @@
   border-radius: 4px;
 }
 
+.test__question-active {
+  color: #42b20a;
+}
+
+.test__question-inactive {
+  color: #a9a9a9;
+}
+
 .test__answers {
   display: flex;
   flex-direction: column;
