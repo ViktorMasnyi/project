@@ -10,20 +10,35 @@ const initState = {
           timeLimit: 30, 
           questions: [ 
             {
-              type: 'single', 
+              type: 'radio', 
               question: 'what is Java?',
-              ansVariant1: 'first  var',
-              ansVariant2: 'second var', 
-              ansVariant3: 'third var',
-              answer: ['first  var']
-            },  
+              answer: [
+                'first  var',
+                'second var', 
+                'third var'
+              ],
+              correctAnswer: ['first  var']
+            },
             {
-              type: 'multy', 
+              type: 'radio', 
+              question: 'what is closure?',
+              answer: [
+                'answer no 1',
+                'answer no 2r', 
+                'answer no 3',
+                'answer no 4'
+              ],
+              correctAnswer: ['first  var']
+            },    
+            {
+              type: 'checkbox', 
               question: 'who is Jesus?',
-              ansVariant1: 'first  var',
-              ansVariant2: 'second var', 
-              ansVariant3: 'third var',
-              answer: ['first  var', 'third var']
+              answer: [
+                'first  var',
+                'second var', 
+                'third var'
+              ],
+              correctAnswer: ['first  var', 'third var']
             }
           ]
         },
@@ -33,20 +48,24 @@ const initState = {
           timeLimit: 20, 
           questions: [ 
             {
-              type: 'single', 
+              type: 'radio', 
               question: 'what is Java?',
-              ansVariant1: 'first  var',
-              ansVariant2: 'second var', 
-              ansVariant3: 'third var',
-              answer: ['third var']  
+              answer: [
+                'first  var',
+                'second var', 
+                'third var'
+              ],
+              correctAnswer: ['third var']  
             },  
             {
-              type: 'multy', 
+              type: 'checkbox', 
               question: 'who is Jesus?',
-              ansVariant1: 'first  var',
-              ansVariant2: 'second var', 
-              ansVariant3: 'third var',
-              answer: ['first  var', 'third var']
+              answer: [
+                'first  var',
+                'second var', 
+                'third var'
+              ],
+              correctAnswer: ['first  var', 'third var']
             }
           ]
         }
@@ -62,20 +81,24 @@ const initState = {
           timeLimit: 30, 
           questions: [ 
             {
-              type: 'single', 
+              type: 'radio', 
               question: 'what is Javascript?',
-              ansVariant1: 'first  var',
-              ansVariant2: 'second var', 
-              ansVariant3: 'third var',
-              answer: ['first  var'  ]
+              answer: [
+                'first  var',
+                'second var', 
+                'third var'
+              ],
+              correctAnswer: ['first  var'  ]
             },  
             {
-              type: 'multy', 
+              type: 'checkbox', 
               question: 'who is Jesus?',
-              ansVariant1: 'first  var',
-              ansVariant2: 'second var', 
-              ansVariant3: 'third var',
-              answer: ['first  var', 'third var']
+              answer: [
+                'first  var',
+                'second var', 
+                'third var'
+              ],
+              correctAnswer: ['first  var', 'third var']
             }
           ]
         },
@@ -85,20 +108,24 @@ const initState = {
           timeLimit: 20, 
           questions: [ 
             {
-              type: 'single', 
+              type: 'radio', 
               question: 'what is Javascript?',
-              ansVariant1: 'first  var',
-              ansVariant2: 'second var', 
-              ansVariant3: 'third var',
-              answer: ['third var']  
+              answer: [
+                'first  var',
+                'second var', 
+                'third var'
+              ],
+              correctAnswer: ['third var']  
             },  
             {
-              type: 'multy', 
+              type: 'checkbox', 
               question: 'who is Jesus?',
-              ansVariant1: 'first  var',
-              ansVariant2: 'second var', 
-              ansVariant3: 'third var',
-              answer: ['first  var', 'third var']
+              answer: [
+                'first  var',
+                'second var', 
+                'third var'
+              ],
+              correctAnswer: ['first  var', 'third var']
             }
           ]
         }
@@ -114,20 +141,24 @@ const initState = {
           timeLimit: 30, 
           questions: [ 
             {
-              type: 'single', 
+              type: 'radio', 
               question: 'what is C++?',
-              ansVariant1: 'first  var',
-              ansVariant2: 'second var', 
-              ansVariant3: 'third var',
-              answer: ['first  var'  ]
+              answer: [
+                'first  var',
+                'second var', 
+                'third var'
+              ],
+              correctAnswer: ['first  var'  ]
             },  
             {
-              type: 'multy', 
+              type: 'checkbox', 
               question: 'who is Jesus?',
-              ansVariant1: 'first  var',
-              ansVariant2: 'second var', 
-              ansVariant3: 'third var',
-              answer: ['first  var', 'third var']
+              answer: [
+                'first  var',
+                'second var', 
+                'third var'
+              ],
+              correctAnswer: ['first  var', 'third var']
             }
           ]
         },
@@ -137,20 +168,24 @@ const initState = {
           timeLimit: 20, 
           questions: [ 
             {
-              type: 'single', 
+              type: 'radio', 
               question: 'what is C++?',
-              ansVariant1: 'first  var',
-              ansVariant2: 'second var', 
-              ansVariant3: 'third var',
-              answer: ['third var']  
+              answer: [
+                'first  var',
+                'second var', 
+                'third var'
+              ],
+              correctAnswer: ['third var']  
             },  
             {
-              type: 'multy', 
+              type: 'checkbox', 
               question: 'who is Jesus?',
-              ansVariant1: 'first  var',
-              ansVariant2: 'second var', 
-              ansVariant3: 'third var',
-              answer: ['first  var', 'third var']
+              answer: [
+                'first  var',
+                'second var', 
+                'third var'
+              ],
+              correctAnswer: ['first  var', 'third var']
             }
           ]
         }
@@ -166,20 +201,24 @@ const initState = {
           timeLimit: 30, 
           questions: [ 
             {
-              type: 'single', 
+              type: 'radio', 
               question: 'what is Quality Assurance means?',
-              ansVariant1: 'first  var',
-              ansVariant2: 'second var', 
-              ansVariant3: 'third var',
-              answer: ['first  var'  ]
+              answer: [
+                'first  var',
+                'second var', 
+                'third var'
+              ],
+              correctAnswer: ['first  var'  ]
             },  
             {
-              type: 'multy', 
+              type: 'checkbox', 
               question: 'who is Jesus?',
-              ansVariant1: 'first  var',
-              ansVariant2: 'second var', 
-              ansVariant3: 'third var',
-              answer: ['first  var', 'third var']
+              answer: [
+                'first  var',
+                'second var', 
+                'third var'
+              ],
+              correctAnswer: ['first  var', 'third var']
             }
           ]
         },
@@ -189,20 +228,24 @@ const initState = {
           timeLimit: 20, 
           questions: [ 
             {
-              type: 'single', 
+              type: 'radio', 
               question: 'what is Quality Assurance?',
-              ansVariant1: 'first  var',
-              ansVariant2: 'second var', 
-              ansVariant3: 'third var',
-              answer: ['third var']  
+              answer: [
+                'first  var',
+                'second var', 
+                'third var'
+              ],
+              correctAnswer: ['third var']  
             },  
             {
-              type: 'multy', 
+              type: 'checkbox', 
               question: 'who is Jesus?',
-              ansVariant1: 'first  var',
-              ansVariant2: 'second var', 
-              ansVariant3: 'third var',
-              answer: ['first  var', 'third var']
+              answer: [
+                'first  var',
+                'second var', 
+                'third var'
+              ],
+              correctAnswer: ['first  var', 'third var']
             }
           ]
         }
@@ -218,20 +261,24 @@ const initState = {
           timeLimit: 30, 
           questions: [ 
             {
-              type: 'single', 
+              type: 'radio', 
               question: 'what is Python means?',
-              ansVariant1: 'first  var',
-              ansVariant2: 'second var', 
-              ansVariant3: 'third var',
-              answer: ['first  var'  ]
+              answer: [
+                'first  var',
+                'second var', 
+                'third var'
+              ],
+              correctAnswer: ['first  var'  ]
             },  
             {
-              type: 'multy', 
+              type: 'checkbox', 
               question: 'who is Jesus?',
-              ansVariant1: 'first  var',
-              ansVariant2: 'second var', 
-              ansVariant3: 'third var',
-              answer: ['first  var', 'third var']
+              answer: [
+                'first  var',
+                'second var', 
+                'third var'
+              ],
+              correctAnswer: ['first  var', 'third var']
             }
           ]
         },
@@ -241,20 +288,24 @@ const initState = {
           timeLimit: 20, 
           questions: [ 
             {
-              type: 'single', 
+              type: 'radio', 
               question: 'what is Python?',
-              ansVariant1: 'first  var',
-              ansVariant2: 'second var', 
-              ansVariant3: 'third var',
-              answer: ['third var']  
+              answer: [
+                'first  var',
+                'second var', 
+                'third var'
+              ],
+              correctAnswer: ['third var']  
             },  
             {
-              type: 'multy', 
+              type: 'checkbox', 
               question: 'who is Jesus?',
-              ansVariant1: 'first  var',
-              ansVariant2: 'second var', 
-              ansVariant3: 'third var',
-              answer: ['first  var', 'third var']
+              answer: [
+                'first  var',
+                'second var', 
+                'third var'
+              ],
+              correctAnswer: ['first  var', 'third var']
             }
           ]
         }

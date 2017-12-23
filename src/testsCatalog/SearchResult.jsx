@@ -4,6 +4,7 @@ import TestsList from "../test/TestsList";
 const SearchResult = (props) => {
   return (
     <div>
+      {console.log(props)}
       <h2>Search results:</h2>
           <TestsList tests={props.foundTests} />
           <br />

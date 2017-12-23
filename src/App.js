@@ -12,7 +12,7 @@ import Gallery from "./gallery/Gallery";
 import NoMatch from "./nomatch/NoMatch";
 import Login from "./login/Login";
 import TestsCatalog from "./testsCatalog/TestsCatalog";
-import initState from './initState';
+import initState from "./initState";
 
 const history = createBrowserHistory();
 

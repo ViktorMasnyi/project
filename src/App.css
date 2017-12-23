@@ -262,23 +262,46 @@
   margin-top: 10px;
 }
 
-/* Test pagr style */
+/* Test page style */
 
 .test__container {
-  border: 2px solid lightgrey;
+  border: 2px solid #f8f8f8;
   border-radius: 4px;
-  min-width: 320px;
+  width: 90%;
+  margin: 5px;
+  padding: 5px;
 
 }
 
-.test__header {
-  background-color: lightgreen;
+.test__header { 
+  background-color: #f8f8f8;
   border: 2px solid #42b20a;
   border-radius: 4px;
+  margin: 5px;
+  padding: 5px;
 }
 
 .test__questions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 5px;
+  border: 2px solid #fff;
+}
 
+.test__question {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 5px 0px;
+  /* padding: 10px 5px; */
+  background-color: #f8f8f8;
+  /* border: 2px solid #42b20a; */
+  border-radius: 4px;
+}
+
+.test__answers {
+  display: flex;
+  flex-direction: column;
 }
 
 /* Gallery styling - TO ADD MASONRY*/
