@@ -10,6 +10,8 @@ class Answers extends Component {
   handleAnswerChange = (e) => {
     const type = e.target.type;
     const value = e.target.value;
+
+    console.log('e.target.value from Answer', e.target.value)
     this.setState({
       selectedOption: value
     });
@@ -29,13 +31,14 @@ class Answers extends Component {
       <form className="test__answers">      
         {                  
           this.props.activeQuestion.answer.map((answer, id) => {
-            //console.log('this.props.userAnswers[id]', this.props.userAnswers[id], 'ID:',id);            
+            console.log('Answers props.userAnswers[id]', this.props.userAnswers[id], 'answer No:',id);            
             //let checked = (id === 0 && this.props.activeQuestion.type === 'radio') ? 'checked' : false; 
             return ( 
-              <Answer 
+              <Answer
+                key={`AnswerKey${id}`} 
                 answer={answer}
                 answerId={id}
-                checked={this.props.userAnswers[id] && this.props.userAnswers[id].indexOf(answer) > -1}
+                checked={(this.props.userAnswers[id]) ? true : false && this.props.userAnswers[id].indexOf(answer) > -1}
                 type={this.props.activeQuestion.type}
                 onChange={this.handleAnswerChange}
               />

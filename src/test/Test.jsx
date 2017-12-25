@@ -41,7 +41,7 @@ class Test extends Component {
         [this.state.activeIndex]: userAnswers
       }
     });
-    console.log('this.state.userAnswers', this.state.userAnswers);
+    //console.log('this.state.userAnswers', this.state.userAnswers);
   };
 
   render () {    
