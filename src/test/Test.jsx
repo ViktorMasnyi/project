@@ -30,10 +30,6 @@ class Test extends Component {
   };
 
   handleActiveQuestionAnswer = (userAnswers) => {
-       
-    // this.setState({
-    //   [this.state.activeIndex]: {answer}
-    // })
     
     this.setState({
       userAnswers: {
@@ -41,7 +37,6 @@ class Test extends Component {
         [this.state.activeIndex]: userAnswers
       }
     });
-    //console.log('this.state.userAnswers', this.state.userAnswers);
   };
 
   render () {    

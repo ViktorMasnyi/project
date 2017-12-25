@@ -1,18 +1,22 @@
-import React from "react";
+import React, { Component } from "react";
 
-const Answer = (props) => {
-  console.log('Answer props', props)
-    return (     
-      <label key={`label${props.answerId}`}>
-        <input key={`answer${props.answerId}`} 
-          type={props.type}
-          value={props.answer}
-          checked={props.checked}
-          onChange={(e) => props.onChange(e)}
+class Answer extends Component {
+
+  render() {
+    const { type, answer, checked } = this.props;
+
+    return (
+      <label>
+        <input
+          type={type}
+          value={answer}
+          checked={checked}
+          onChange={this.props.handleChange}
         />       
-       {props.answer}              
+        {answer}
       </label>
-    )
+    );
+  }
 }
 
 export default Answer;

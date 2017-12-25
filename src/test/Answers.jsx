@@ -11,18 +11,20 @@ class Answers extends Component {
     const type = e.target.type;
     const value = e.target.value;
 
-    console.log('e.target.value from Answer', e.target.value)
-    this.setState({
-      selectedOption: value
-    });
-
     if (type === 'radio') {
       this.props.handleActiveQuestionAnswer([value]);
     } else {
+      const { userAnswers, activeIndex } = this.props;
+      let multiAnswer = userAnswers[activeIndex] !== undefined
+        ? [...userAnswers[activeIndex]]
+        : [];
 
+      e.target.checked
+        ? multiAnswer.push(value)
+        : multiAnswer = multiAnswer.filter(item => item !== value);
+
+      this.props.handleActiveQuestionAnswer(multiAnswer);
     }
-
-    // this.props.handleActiveQuestionAnswer(this.props.userAnswers[id]);
   }
 
   render () {
@@ -30,41 +32,20 @@ class Answers extends Component {
     return (
       <form className="test__answers">      
         {                  
-          this.props.activeQuestion.answer.map((answer, id) => {
-            console.log('Answers props.userAnswers[id]', this.props.userAnswers[id], 'answer No:',id);            
-            //let checked = (id === 0 && this.props.activeQuestion.type === 'radio') ? 'checked' : false; 
-            return ( 
+          this.props.activeQuestion.answer.map((answer, id) => {            
+            return (
               <Answer
                 key={`AnswerKey${id}`} 
                 answer={answer}
                 answerId={id}
-                checked={(this.props.userAnswers[id]) ? true : false && this.props.userAnswers[id].indexOf(answer) > -1}
+                checked={this.props.userAnswers[this.props.activeIndex] !== undefined && 
+                  this.props.userAnswers[this.props.activeIndex].indexOf(answer) > -1}
                 type={this.props.activeQuestion.type}
-                onChange={this.handleAnswerChange}
+                handleChange={this.handleAnswerChange}
               />
-            )
-            
-            {/* <label key={`label${this.props.activeIndex}${id}`}>
-              <input type={this.props.activeQuestion.type}
-                key={`answer${this.props.activeIndex}${id}`}
-
-                value={answer}
-                checked={this.props.userAnswers[id] && this.props.userAnswers[id].indexOf(answer) > -1}
-                onChange={this.handleAnswerChange}
-              />
-              {this.props.userAnswers[id] && console.log('this.props.userAnswers[id].indexOf(answer)', this.props.userAnswers[id].indexOf(answer))}
-              {answer}              
-            </label> */}
+            )           
           })
         }
-        {/* <button
-          type="button"
-          value="save"
-          onClick={() => {this.props.handleActiveQuestionAnswer(this.state.selectedOption)}}
-        >
-          Save answer
-        </button> */}
-              
       </form>
     );
   }
