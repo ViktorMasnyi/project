@@ -34,7 +34,7 @@ const initState = {
         {                         // nameId
           nameId: 0,
           name: 'Java Basics',
-          timeLimit: 30, 
+          timeLimit: 300, 
           questions: [ 
             {
               type: 'radio', 

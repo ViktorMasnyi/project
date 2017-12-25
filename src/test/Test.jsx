@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Answers from "./Answers";
 import MyButton from "./MyButton";
+import Timer from "./Timer"
 //import { NavLink } from "react-router-dom";
 
 class Test extends Component {
@@ -10,7 +11,6 @@ class Test extends Component {
       activeQuestion: {},
       activeIndex: null,
       activeUser: null, // move to props
-      activeUserTestProps: {},  // Active TestID, questionID + answer
       userAnswers: {}
     };
     this.handleActiveQuestion = this.handleActiveQuestion.bind(this); 
@@ -57,6 +57,11 @@ class Test extends Component {
           <div className="test__header">
             <h2 className="test__heading">{targetTest.name}</h2>
             <button value="end test" children="END TEST"/>
+
+            <Timer 
+              timeLimit={targetTest.timeLimit}
+              startTimer={this.state.activeIndex}
+            />
           </div>
           <div className="test__questions">
             {
@@ -64,6 +69,7 @@ class Test extends Component {
                 <MyButton key={id} 
                   index={id} 
                   isActive={this.state.activeIndex===id}
+                  isAnswered={this.state.userAnswers[id] !== undefined && this.state.userAnswers[id][0]}
                   question={question}
                   handleActiveQuestion = {this.handleActiveQuestion}                                    
                 >

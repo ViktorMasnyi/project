@@ -28,22 +28,22 @@ class Answers extends Component {
   }
 
   render () {
-    //console.log('Answers props.userAnswers: ', this.props.userAnswers);
+    const { userAnswers, activeIndex, activeQuestion } = this.props;
     return (
       <form className="test__answers">      
         {                  
-          this.props.activeQuestion.answer.map((answer, id) => {            
+          activeQuestion.answer.map((answer, id) => {            
             return (
               <Answer
                 key={`AnswerKey${id}`} 
                 answer={answer}
                 answerId={id}
-                checked={this.props.userAnswers[this.props.activeIndex] !== undefined && 
-                  this.props.userAnswers[this.props.activeIndex].indexOf(answer) > -1}
-                type={this.props.activeQuestion.type}
+                checked={userAnswers[activeIndex] !== undefined && 
+                  userAnswers[activeIndex].indexOf(answer) > -1}
+                type={activeQuestion.type}
                 handleChange={this.handleAnswerChange}
               />
-            )           
+            )
           })
         }
       </form>

@@ -300,11 +300,19 @@
 }
 
 .test__question-active {
-  color: #42b20a;
+  /* color: #42b20a; */
+  font-weight: 600;
+  width: 100px;
 }
 
 .test__question-inactive {
-  color: #a9a9a9;
+  /* color: #a9a9a9; */
+  font-weight: 400;
+  width: 100px;
+}
+
+.test__question-answered {
+  background-color: #42b20a;
 }
 
 .test__answers {
