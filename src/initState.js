@@ -1,4 +1,31 @@
 const initState = {
+    users: [
+      {
+        userId: 0,
+        userIsAdmin: 'false',
+        userLogin: 'user0',
+        userPass: 'password',
+        userName: 'user name 0',
+        userTests: [
+          {
+            testTopicId: 0,
+            nameId: 0,
+            testDate: '',
+            testStatus: 'pass', // last test status
+            testAttempts: '2',
+            testTimeSpent: '300'  // in seconds
+          },
+          {
+            testTopicId: 0,
+            nameId: 1,
+            testDate: '',
+            testStatus: 'fail',
+            testAttempts: '1',
+            testTimeSpent: '300'  // in seconds
+          },
+        ],
+      }
+    ],
     test: [
     {                             // test Group
       'topicId': '0', 
@@ -24,7 +51,7 @@ const initState = {
               question: 'what is closure?',
               answer: [
                 'answer no 1',
-                'answer no 2r', 
+                'answer no 2', 
                 'answer no 3',
                 'answer no 4'
               ],

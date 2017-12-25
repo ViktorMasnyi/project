@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Answer from "./Answer";
+import Answers from "./Answers";
 import MyButton from "./MyButton";
 //import { NavLink } from "react-router-dom";
 
@@ -9,9 +9,12 @@ class Test extends Component {
     this.state = {
       activeQuestion: {},
       activeIndex: null,
-      btnBgColor: null
+      activeUser: null, // move to props
+      activeUserTestProps: {},  // Active TestID, questionID + answer
+      userAnswers: {}
     };
-    this.handleActiveQuestion = this.handleActiveQuestion.bind(this);  
+    this.handleActiveQuestion = this.handleActiveQuestion.bind(this); 
+    this.handleActiveQuestionAnswer = this.handleActiveQuestionAnswer.bind(this);     
   };
 
   componentWillUnmount () {
@@ -20,21 +23,38 @@ class Test extends Component {
 
   handleActiveQuestion = (question, id) => {
     this.setState({ 
+      activeUserTestProps: {},
       activeQuestion: question,
       activeIndex: id 
     })
+  };
+
+  handleActiveQuestionAnswer = (userAnswers) => {
+       
+    // this.setState({
+    //   [this.state.activeIndex]: {answer}
+    // })
+    
+    this.setState({
+      userAnswers: {
+        ...this.state.userAnswers,
+        [this.state.activeIndex]: userAnswers
+      }
+    });
+    console.log('this.state.userAnswers', this.state.userAnswers);
   };
 
   render () {    
     let targetGroup = this.props.match.params.targetGroup;  
     let nameId = this.props.match.params.nameId; // nameId is a siquence no. of test inside Test Group -> tests[]
     let targetTest = this.props.test[targetGroup].tests[nameId];
-    let answers = null;
-      //console.log('this.state.activeQuestion', this.state.activeQuestion)
-      if (this.state.activeQuestion.type) {
-        answers = <Answer props={this.state.activeQuestion} />;
-      }
-      else answers = null;
+    let answers = this.state.activeQuestion.type ? 
+      <Answers 
+        handleActiveQuestionAnswer={this.handleActiveQuestionAnswer} 
+        activeQuestion = {this.state.activeQuestion} 
+        userAnswers = {this.state.userAnswers}
+        activeIndex = {this.state.activeIndex}
+      /> : null;
 
     return (
       <main className="main">
@@ -46,12 +66,12 @@ class Test extends Component {
           <div className="test__questions">
             {
               targetTest.questions.map((question, id) =>
-                <MyButton key={id} index={id} 
-                  isActive={ this.state.activeIndex===id }
-                  onClick={() => {
-                    this.handleActiveQuestion(question, id);
-                  }                  
-                }>
+                <MyButton key={id} 
+                  index={id} 
+                  isActive={this.state.activeIndex===id}
+                  question={question}
+                  handleActiveQuestion = {this.handleActiveQuestion}                                    
+                >
                   Question {id + 1}
                 </MyButton>
               )

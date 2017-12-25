@@ -1,17 +1,19 @@
-import React from 'react';
+import React from "react";
 
-const Answer = ({props}) => {
-  return (
-    <form className="test__answers">      
-      {        
-        props.answer.map((answer, id) => { 
-          return <label key={id}>
-            <input type={props.type} name="answer" value={answer} />
-            {answer}
-          </label>
-        })
-      }      
-    </form>
-  );
+const Answer = (props) => {
+  console.log('Answer props', props.answer)
+    return (     
+      <label key={`label${props.answerId}`}>
+        <input 
+          type={props.type}
+          key={`answer${props.answerId}`}
+          value={props.answer}
+          checked={props.checked}
+          onChange={props.onChange}
+        />       
+       {props.answer}              
+      </label>
+    )
 }
-export default Answer
+
+export default Answer;
