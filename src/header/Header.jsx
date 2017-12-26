@@ -12,20 +12,25 @@ const Header = (props) => (
     </div>
     </a>
     <div className="header__items">
-      <form>
+      <form onSubmit={
+        (event) => {
+          event.preventDefault(); 
+          props.history.push("/Tests");
+          }
+        }
+      >
         <input className="header__input" 
-          onChange={(event) => {props.handleSearch(event.target.value)}}          
+          onChange={(event) => {props.handleSearch(event.target.value)}}
           type="text" placeholder="search test" 
         />
         <input className="header__input header__reset" type="reset" 
-          onClick={props.handleReset} value="X" 
-        />            
+          onClick={props.handleReset} value="X"
+        />        
       </form>
       {/*<a className="header__login link" href="Login">Войти</a>*/}
       <input className="header__login link" 
         onClick={() => props.history.push("/Tests")} 
         type="submit"
-        onSubmit={(event) => {event.preventDefault()}} 
       />
     </div>
   </header>

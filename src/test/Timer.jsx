@@ -11,12 +11,15 @@ class Timer extends React.Component {
 
   secondsToTime(secs){
     let hours = Math.floor(secs / (60 * 60));
+    hours = hours < 1 ? '00' : hours < 10 ? `0${hours}` : hours;
 
     let divisor_for_minutes = secs % (60 * 60);
     let minutes = Math.floor(divisor_for_minutes / 60);
+    minutes = minutes < 1 ? '00' : minutes < 10 ? `0${minutes}` : minutes;
 
     let divisor_for_seconds = divisor_for_minutes % 60;
     let seconds = Math.ceil(divisor_for_seconds);
+    seconds = seconds < 1 ? '00' : seconds < 10 ? `0${seconds}` : seconds;
 
     let obj = {
       "h": hours,
