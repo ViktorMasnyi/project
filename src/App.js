@@ -28,19 +28,17 @@ class App extends Component {
   };
 
   handleSearch = function(searchStr, isSearchActive) {
-    var searchQuery = searchStr;
-    //console.log('app haldle search: ', value);
+    var searchQuery = searchStr.toLowerCase();
     var foundT = [];
     var foundG = [];
-    this.state.test.map((testGroup, id) => { //was this.state.test      
+    this.state.test.map((testGroup, id) => {   
       if (testGroup.topicName.toLowerCase().indexOf(searchQuery) !== - 1)
-      foundG.push(testGroup);
-      testGroup.tests.map(function(test) {
-        //console.log(test.name);
-        if (test.name.toLowerCase().indexOf(searchQuery) !== - 1) {         
-          foundT.push(test);
-          //console.log('app foundT: ', foundT);
-        }        
+        foundG.push(testGroup);
+        testGroup.tests.map(function(test) {        
+          if (test.name.toLowerCase().indexOf(searchQuery) !== - 1) {
+            test.groupId = testGroup.topicId;
+            foundT.push(test);            
+          }        
         return true;
       });                     
       this.setState({
@@ -50,6 +48,7 @@ class App extends Component {
       });
       return true;
     });
+    //event.preventDefault();
   };
 
   handleReset = () => {

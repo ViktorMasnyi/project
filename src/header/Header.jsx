@@ -2,9 +2,7 @@ import React from "react";
 import {withRouter} from "react-router-dom";
 import logo from "./logo.png";
 
-
-const Header = (props) => (
-    
+const Header = (props) => (    
   <header className="header">
     {/*{console.log('header props: ', props)}*/}
     <a className="link" href="/">
@@ -15,15 +13,22 @@ const Header = (props) => (
     </a>
     <div className="header__items">
       <form>
-      <input className="header__input" onChange={(event) => {props.handleSearch(event.target.value)}} 
-        type="text" placeholder="search test" />
-        <input className="header__input header__reset" type="reset" onClick={props.handleReset} value="X" />      
+        <input className="header__input" 
+          onChange={(event) => {props.handleSearch(event.target.value)}}          
+          type="text" placeholder="search test" 
+        />
+        <input className="header__input header__reset" type="reset" 
+          onClick={props.handleReset} value="X" 
+        />            
       </form>
       {/*<a className="header__login link" href="Login">Войти</a>*/}
-      <input className="header__login link" onClick={() => props.history.push("/Tests")} type="submit" />
+      <input className="header__login link" 
+        onClick={() => props.history.push("/Tests")} 
+        type="submit"
+        onSubmit={(event) => {event.preventDefault()}} 
+      />
     </div>
   </header>
 );
 
-export default withRouter(Header);    
-// export default Header;
+export default withRouter(Header); 

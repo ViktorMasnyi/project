@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Answers from "./Answers";
 import MyButton from "./MyButton";
 import Timer from "./Timer"
-//import { NavLink } from "react-router-dom";
 
 class Test extends Component {
   constructor(props) {
@@ -11,12 +10,22 @@ class Test extends Component {
       activeQuestion: {},
       activeIndex: null,
       activeUser: null, // move to props
+      targetTest: {},
       userAnswers: {}
     };
     this.handleActiveQuestion = this.handleActiveQuestion.bind(this); 
     this.handleActiveQuestionAnswer = this.handleActiveQuestionAnswer.bind(this);     
   };
 
+  componentWillMount () {
+    let targetGroup = this.props.test[this.props.match.params.targetGroup];    
+    let nameIdMatch = this.props.match.params.nameId; // nameId is a siquence no. of test inside Test Group -> tests[]
+    let [testMatch] = targetGroup.tests.filter((test) => {
+      return +test.nameId === +nameIdMatch;     
+    })
+    this.setState({targetTest: testMatch}); 
+  }
+ 
   componentWillUnmount () {
     this.setState({activeQuestion: {}});
   }
@@ -39,10 +48,8 @@ class Test extends Component {
     });
   };
 
-  render () {    
-    let targetGroup = this.props.match.params.targetGroup;  
-    let nameId = this.props.match.params.nameId; // nameId is a siquence no. of test inside Test Group -> tests[]
-    let targetTest = this.props.test[targetGroup].tests[nameId];
+  render () {
+    let targetTest = this.state.targetTest;    
     let answers = this.state.activeQuestion.type ? 
       <Answers 
         handleActiveQuestionAnswer={this.handleActiveQuestionAnswer} 
@@ -60,7 +67,7 @@ class Test extends Component {
 
             <Timer 
               timeLimit={targetTest.timeLimit}
-              startTimer={this.state.activeIndex}
+              startTimer={this.state.activeQuestion.type}
             />
           </div>
           <div className="test__questions">

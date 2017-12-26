@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Answer extends Component {
 
   render() {
-    const { type, answer, checked } = this.props;
+    const { type, answer, checked, handleChange } = this.props;
 
     return (
       <label>
@@ -11,7 +11,7 @@ class Answer extends Component {
           type={type}
           value={answer}
           checked={checked}
-          onChange={this.props.handleChange}
+          onChange={handleChange}
         />       
         {answer}
       </label>
