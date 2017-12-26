@@ -4,7 +4,6 @@ import logo from "./logo.png";
 
 const Header = (props) => (    
   <header className="header">
-    {/*{console.log('header props: ', props)}*/}
     <a className="link" href="/">
       <div className="logo">
       <img src={logo} className="logo__img" alt="Omni tester" />
@@ -13,8 +12,8 @@ const Header = (props) => (
     </a>
     <div className="header__items">
       <form onSubmit={
-        (event) => {
-          event.preventDefault(); 
+        (e) => {
+          e.preventDefault(); 
           props.history.push("/Tests");
           }
         }

@@ -20,11 +20,13 @@ class App extends Component {
   constructor (props) {
     super(props);
     this.state = initState;
+    this.state.authUserId = null;
     this.state.foundTests = [];
     this.state.foundGroups = [];
-    this.state.isSearchActive = false;
+    this.state.isSearchActive = false;       
     this.handleSearch = this.handleSearch.bind(this);
     this.handleReset = this.handleReset.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
   };
 
   handleSearch = function(searchStr, isSearchActive) {
@@ -48,7 +50,6 @@ class App extends Component {
       });
       return true;
     });
-    //event.preventDefault();
   };
 
   handleReset = () => {
@@ -57,7 +58,17 @@ class App extends Component {
       foundGroups: [],
       isSearchActive: false
       });
-  }
+  };
+
+  handleLogin = (e) => {
+    const [inputLogin, inputPassword] = [e.target.login.value, e.target.password.value];
+    const [authUser] = this.state.users.filter((user) => {
+      return user.userLogin === inputLogin && user.userPass === inputPassword
+    })
+    authUser ? this.setState({authUserId: authUser.userId}) : this.setState({authUserId: null});
+    console.log('authUser ', authUser)
+    e.preventDefault();
+  };
 
   TestsCatalogWithProps = () => {
     return (
@@ -70,13 +81,15 @@ class App extends Component {
         test={this.state.test}
       />
     );
-  }
+  };
 
   TestWithProps = (props) => {
-      return (
-        <Test {...props} test={this.state.test}  />
-      );
-    } 
+      return <Test {...props} test={this.state.test} />      
+    }
+    
+  LoginWithProps = (props) => {
+    return <Login {...props} handleLogin={this.handleLogin} />
+  };
 
   render() {
     return (
@@ -105,7 +118,7 @@ class App extends Component {
             <Route path="/Tests" render={this.TestsCatalogWithProps} />
             <Route path="/Test/:targetGroup/:nameId" render={this.TestWithProps} />
             <Route path="/Contacts" component={Contacts} />
-            <Route path="/Login" component={Login} />
+            <Route path="/Login" render={this.LoginWithProps} />
             <Route path="/Gallery" component={Gallery} />
             <Route component={NoMatch} />
           </Switch>

@@ -38,14 +38,17 @@ class Test extends Component {
     })
   };
 
-  handleActiveQuestionAnswer = (userAnswers) => {
-    
+  handleActiveQuestionAnswer = (userAnswers) => {    
     this.setState({
       userAnswers: {
         ...this.state.userAnswers,
         [this.state.activeIndex]: userAnswers
       }
     });
+  };
+
+  handleFinishTest = () => {
+
   };
 
   render () {

@@ -1,14 +1,27 @@
 import React from 'react';
 
-const Login = () => (
+const Login = (props) => (
   <main className="main">
-    <form className="loginpage">
-      <label className="loginpage_label" htmlFor="login">Логин</label>
-      <input className="loginpage_item"  name="login" type="text" value="" />
-      <label className="loginpage_label" htmlFor="password">Пароль</label>
-      <input className="loginpage_item" name="password" type="text" value="" />
-      <input className="loginpage_item" type="submit" value="Войти" />
-      <a className="link" href="Login/Signup">Зарегистрироваться</a>
+    <form
+      onSubmit={
+        (e) => {
+          e.preventDefault(); 
+          props.handleLogin(e);
+        }
+      }
+      className="loginpage"
+      autoComplete="off"
+    >
+      <label className="loginpage_label" htmlFor="login">login</label>
+      <input className="loginpage_item"  name="login" type="text" />
+      <label className="loginpage_label" htmlFor="password">password</label>
+      <input className="loginpage_item" name="password" type="text" />
+      <input
+        type="submit"
+        className="loginpage_item" 
+        value="Login" 
+      />
+      <a className="link" href="Login/Signup">signup</a>
     </form>
   </main>
 );
