@@ -1,11 +1,11 @@
 const initState = {
     users: [
       {
-        userId: 0,
+        userId: 1,
         userIsAdmin: 'false',
-        userLogin: 'user0',
-        userPass: 'password',
-        userName: 'user name 0',
+        userLogin: '1',
+        userPass: '1',
+        userName: 'user name',
         userTests: [
           {
             testTopicId: 0,

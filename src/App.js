@@ -11,6 +11,7 @@ import Contacts from "./contacts/Contacts";
 import Gallery from "./gallery/Gallery";
 import NoMatch from "./nomatch/NoMatch";
 import Login from "./login/Login";
+import UserHomePage from "./userHomePage/UserHomePage";
 import TestsCatalog from "./testsCatalog/TestsCatalog";
 import initState from "./initState";
 
@@ -20,7 +21,8 @@ class App extends Component {
   constructor (props) {
     super(props);
     this.state = initState;
-    this.state.authUserId = null;
+    this.state.authUserId = 0;
+    this.state.authUserProps = {};
     this.state.foundTests = [];
     this.state.foundGroups = [];
     this.state.isSearchActive = false;       
@@ -65,10 +67,13 @@ class App extends Component {
     const [authUser] = this.state.users.filter((user) => {
       return user.userLogin === inputLogin && user.userPass === inputPassword
     })
-    authUser ? this.setState({authUserId: authUser.userId}) : this.setState({authUserId: null});
-    console.log('authUser ', authUser)
-    e.preventDefault();
+    authUser ? this.setState({authUserId: authUser.userId}) : this.setState({authUserId: 0});
+    this.setState({authUserProps: authUser})
   };
+
+  handleLogout = () => {
+    this.setState({authUserId: 0});
+  }; 
 
   TestsCatalogWithProps = () => {
     return (
@@ -84,11 +89,18 @@ class App extends Component {
   };
 
   TestWithProps = (props) => {
-      return <Test {...props} test={this.state.test} />      
+      return <Test {...props} test={this.state.test} authUserId={this.state.authUserId} />      
     }
     
   LoginWithProps = (props) => {
-    return <Login {...props} handleLogin={this.handleLogin} />
+    return <Login {...props} 
+      handleLogin={this.handleLogin} 
+      authUserId={this.state.authUserId} 
+      authUserprops={this.getAuthUserProps} />
+  };
+
+  UserHomePageWithProps = (props) => {
+    return <UserHomePage {...props} authUserProps={ this.state.authUserProps }/>
   };
 
   render() {
@@ -98,9 +110,9 @@ class App extends Component {
           <Header props={this.props} handleSearch={this.handleSearch} handleReset={this.handleReset} />          
           <nav className="menucontainer">
             <ul className="navbar">
-              <li><NavLink  className="navbar__item" activeClassName="navbar__item-active" to="/">Главная</NavLink></li>
+              <li><NavLink className="navbar__item" activeClassName="navbar__item-active" to="/">Главная</NavLink></li>
               <div className="dropdown">
-                <li><NavLink  className="navbar__item dropbtn" activeClassName="navbar__item-active" to="/Tests">Каталог тестов</NavLink>
+                <li><NavLink className="navbar__item dropbtn" activeClassName="navbar__item-active" to="/Tests">Каталог тестов</NavLink>
                   <div className="dropdown-content">
                     <a href="/Tests">по популярности</a>
                     <a href="/Tests">по алфавиту</a>
@@ -108,9 +120,13 @@ class App extends Component {
                   </div>
                 </li>
               </div>
-              <li><NavLink  className="navbar__item" activeClassName="navbar__item-active" to="/Gallery">Graduates Gallery</NavLink></li>
-              <li><NavLink  className="navbar__item" activeClassName="navbar__item-active" to="/Contacts">Контакты</NavLink></li>
-              <li><NavLink  className="navbar__item" activeClassName="navbar__item-active" to="/Login">Войти</NavLink></li>
+              <li><NavLink className="navbar__item" activeClassName="navbar__item-active" to="/Gallery">Graduates Gallery</NavLink></li>
+              <li><NavLink className="navbar__item" activeClassName="navbar__item-active" to="/Contacts">Контакты</NavLink></li>
+              {
+                (this.state.authUserId > 0) ?                  
+                  <li><a className="navbar__item" onClick={this.handleLogout}>Logout</a></li> :
+                  <li><NavLink className="navbar__item" activeClassName="navbar__item-active" to="/Login">Login</NavLink></li>
+              }
             </ul>
           </nav>
           <Switch>
@@ -119,6 +135,7 @@ class App extends Component {
             <Route path="/Test/:targetGroup/:nameId" render={this.TestWithProps} />
             <Route path="/Contacts" component={Contacts} />
             <Route path="/Login" render={this.LoginWithProps} />
+            <Route path="/UserHomePage" render={this.UserHomePageWithProps} />
             <Route path="/Gallery" component={Gallery} />
             <Route component={NoMatch} />
           </Switch>

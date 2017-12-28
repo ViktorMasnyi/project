@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import Answers from "./Answers";
 import MyButton from "./MyButton";
 import Timer from "./Timer"
@@ -9,7 +10,6 @@ class Test extends Component {
     this.state = {
       activeQuestion: {},
       activeIndex: null,
-      activeUser: null, // move to props
       targetTest: {},
       userAnswers: {}
     };
@@ -47,7 +47,7 @@ class Test extends Component {
     });
   };
 
-  handleFinishTest = () => {
+  handleFinishTest = () => {  // FINISH it
 
   };
 
@@ -61,38 +61,42 @@ class Test extends Component {
         activeIndex = {this.state.activeIndex}
       /> : null;
 
-    return (
+    return (      
       <main className="main">
-        <div className="test__container">
-          <div className="test__header">
-            <h2 className="test__heading">{targetTest.name}</h2>
-            <button value="end test" children="END TEST"/>
+      {
+        (this.props.authUserId > 0) ?
+          (<div className="test__container">
+            <div className="test__header">
+              <h2 className="test__heading">{targetTest.name}</h2>
+              <button value="end test" children="END TEST"/>
 
-            <Timer 
-              timeLimit={targetTest.timeLimit}
-              startTimer={this.state.activeQuestion.type}
-            />
-          </div>
-          <div className="test__questions">
-            {
-              targetTest.questions.map((question, id) =>
-                <MyButton key={id} 
-                  index={id} 
-                  isActive={this.state.activeIndex===id}
-                  isAnswered={this.state.userAnswers[id] !== undefined && this.state.userAnswers[id][0]}
-                  question={question}
-                  handleActiveQuestion = {this.handleActiveQuestion}                                    
-                >
-                  Question {id + 1}
-                </MyButton>
-              )
-            }
-              {this.state.activeQuestion && <div className="test__question" children={this.state.activeQuestion.question} />}
-            <div>
-              {answers}
+              <Timer 
+                timeLimit={targetTest.timeLimit}
+                startTimer={this.state.activeQuestion.type}
+              />
             </div>
-          </div>
-        </div>
+            <div className="test__questions">
+              {
+                targetTest.questions.map((question, id) =>
+                  <MyButton key={id} 
+                    index={id} 
+                    isActive={this.state.activeIndex===id}
+                    isAnswered={this.state.userAnswers[id] !== undefined && this.state.userAnswers[id][0]}
+                    question={question}
+                    handleActiveQuestion = {this.handleActiveQuestion}                                    
+                  >
+                    Question {id + 1}
+                  </MyButton>
+                )
+              }
+                {this.state.activeQuestion && <div className="test__question" children={this.state.activeQuestion.question} />}
+              <div>
+                {answers}
+              </div>
+            </div>
+          </div>) :
+          <p>Please sign in <NavLink className="navbar__item" activeClassName="navbar__item-active" to="/Login">here</NavLink></p>
+        }
       </main>    
     )
   }
