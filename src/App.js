@@ -96,11 +96,11 @@ class App extends Component {
     return <Login {...props} 
       handleLogin={this.handleLogin} 
       authUserId={this.state.authUserId} 
-      authUserprops={this.getAuthUserProps} />
+    />
   };
 
   UserHomePageWithProps = (props) => {
-    return <UserHomePage {...props} authUserProps={ this.state.authUserProps }/>
+    return <UserHomePage {...props} authUserProps={ this.state.authUserProps } test={this.state.test}/>
   };
 
   render() {

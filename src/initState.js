@@ -5,14 +5,14 @@ const initState = {
         userIsAdmin: 'false',
         userLogin: '1',
         userPass: '1',
-        userName: 'user name',
+        userName: 'User Name',
         userTests: [
           {
             testTopicId: 0,
             nameId: 0,
             testDate: '',
             testStatus: 'pass', // last test status
-            testAttempts: '2',
+            testAttempts: 2,
             testTimeSpent: '300'  // in seconds
           },
           {
@@ -20,8 +20,8 @@ const initState = {
             nameId: 1,
             testDate: '',
             testStatus: 'fail',
-            testAttempts: '1',
-            testTimeSpent: '300'  // in seconds
+            testAttempts: 1,
+            testTimeSpent: 300  // in seconds
           },
         ],
       }

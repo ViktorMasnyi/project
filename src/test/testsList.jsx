@@ -19,4 +19,5 @@ const TestsList = ({ tests, targetGroup }) => { // render list of tests for a gi
     </ul>
   );
 }
+
 export default TestsList

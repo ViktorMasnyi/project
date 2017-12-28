@@ -1,17 +1,15 @@
 import React,  { Component } from 'react';
 
 class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.handleRedirect = this.handleRedirect.bind(this);
+  componentDidUpdate () {
+    this.handleRedirect()
   }
 
   handleRedirect = (props) => {
     if (this.props.authUserId > 0) this.props.history.push('/UserHomePage');
   }
 
-  render () {    
-    this.handleRedirect();
+  render () {
     return (
       <main className="main">
         <form
