@@ -11,10 +11,12 @@ class Test extends Component {
       activeQuestion: {},
       activeIndex: null,
       targetTest: {},
-      userAnswers: {}
+      userAnswers: {},
+      isOver: false
     };
     this.handleActiveQuestion = this.handleActiveQuestion.bind(this); 
     this.handleActiveQuestionAnswer = this.handleActiveQuestionAnswer.bind(this);     
+    this.handleFinishTest = this.handleFinishTest.bind(this);
   };
 
   componentWillMount () {
@@ -48,7 +50,32 @@ class Test extends Component {
   };
 
   handleFinishTest = () => {  // FINISH it
+    const correctAnswers = this.state.targetTest.questions.map((question, id) => question.correctAnswer); //Array of Arrays
+    const userAnswers = this.state.userAnswers; // may have less answers than correctAnswers
+    let numCorrAnswers = 0;
+    let numUserAnswers = 0;
+    let testScore = 0;
+    let answerScore = 0;
+    let testStatus = 'fail';
+    for (let i = 0; i < correctAnswers.length; i++) { // looping for question answers inside User answers
+      if (userAnswers[i] === undefined) continue;
+      numCorrAnswers = correctAnswers[i].length;
+      numUserAnswers = userAnswers[i].length;
+      answerScore = 0;
+      if (numCorrAnswers !== numUserAnswers) continue; // check q-ty of answers for i-th question
+      for (let j = 0; j < numCorrAnswers; j++) { // looping for part of the answer (radio=1/checkbox=n)
+       //console.log('[userAnswers[i]][j]', userAnswers[i][j],'i=', i, 'j=', j)
+        if(correctAnswers[i].indexOf(userAnswers[i][j]) > -1) answerScore++;
+      };
+      if (answerScore === numCorrAnswers) testScore++;
+      console.log(testScore)
+    }
+    testScore / correctAnswers.length >= this.state.targetTest.minTestScore
+      ? testStatus = 'pass' 
+      : testStatus = 'fail';
+      alert(`You have ${testStatus}ed ${this.state.targetTest.name} test`);
 
+    this.setState({isOver: true});
   };
 
   render () {
@@ -65,14 +92,15 @@ class Test extends Component {
       <main className="main">
       {
         (this.props.authUserId > 0) ?
-          (<div className="test__container">
+          <div className="test__container">
             <div className="test__header">
               <h2 className="test__heading">{targetTest.name}</h2>
-              <button value="end test" children="END TEST"/>
-
+              <button onClick={this.handleFinishTest} value="end test" children="END TEST"/>
               <Timer 
                 timeLimit={targetTest.timeLimit}
                 startTimer={this.state.activeQuestion.type}
+                handleFinishTest={this.handleFinishTest}
+                isOver={this.state.isOver}
               />
             </div>
             <div className="test__questions">
@@ -94,7 +122,7 @@ class Test extends Component {
                 {answers}
               </div>
             </div>
-          </div>) :
+          </div> :
           <p>Please sign in <NavLink className="navbar__item" activeClassName="navbar__item-active" to="/Login">here</NavLink></p>
         }
       </main>    

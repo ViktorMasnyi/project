@@ -21,7 +21,7 @@ class App extends Component {
   constructor (props) {
     super(props);
     this.state = initState;
-    this.state.authUserId = 0;
+    this.state.authUserId = 1; //set to 0 on production
     this.state.authUserProps = {};
     this.state.foundTests = [];
     this.state.foundGroups = [];

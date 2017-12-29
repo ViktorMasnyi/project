@@ -34,17 +34,18 @@ const initState = {
         {                         // nameId
           nameId: 0,
           name: 'Java Basics',
-          timeLimit: 300, 
+          timeLimit: 10, 
+          minTestScore: 0.7,
           questions: [ 
             {
               type: 'radio', 
               question: 'what is Java?',
               answer: [
-                'first  var',
+                'first var',
                 'second var', 
                 'third var'
               ],
-              correctAnswer: ['first  var']
+              correctAnswer: ['first var']
             },
             {
               type: 'radio', 
@@ -55,17 +56,17 @@ const initState = {
                 'answer no 3',
                 'answer no 4'
               ],
-              correctAnswer: ['first  var']
+              correctAnswer: ['answer no 1']
             },    
             {
               type: 'checkbox', 
               question: 'who is Jesus?',
               answer: [
-                'first  var',
+                'first var',
                 'second var', 
                 'third var'
               ],
-              correctAnswer: ['first  var', 'third var']
+              correctAnswer: ['first var', 'third var']
             }
           ]
         },
@@ -73,6 +74,7 @@ const initState = {
           nameId: 1,
           name: 'Java Advanced',
           timeLimit: 20, 
+          minTestScore: 0.7,
           questions: [ 
             {
               type: 'radio', 
@@ -106,6 +108,7 @@ const initState = {
           nameId: 2,
           name: 'Javascript Basics',
           timeLimit: 30, 
+          minTestScore: 0.7,
           questions: [ 
             {
               type: 'radio', 
@@ -133,6 +136,7 @@ const initState = {
           nameId: 3,
           name: 'Javascript Advanced',
           timeLimit: 20, 
+          minTestScore: 0.7,
           questions: [ 
             {
               type: 'radio', 
@@ -166,6 +170,7 @@ const initState = {
           nameId: 4,
           name: 'C++ Basics',
           timeLimit: 30, 
+          minTestScore: 0.7,
           questions: [ 
             {
               type: 'radio', 
@@ -193,6 +198,7 @@ const initState = {
           nameId: 5,
           name: 'C++ Advanced',
           timeLimit: 20, 
+          minTestScore: 0.7,
           questions: [ 
             {
               type: 'radio', 
@@ -226,6 +232,7 @@ const initState = {
           nameId: 6,
           name: 'Quality Assurance Basics',
           timeLimit: 30, 
+          minTestScore: 0.7,
           questions: [ 
             {
               type: 'radio', 
@@ -253,6 +260,7 @@ const initState = {
           nameId: 7,
           name: 'Quality Assurance Advanced',
           timeLimit: 20, 
+          minTestScore: 0.7,
           questions: [ 
             {
               type: 'radio', 
@@ -286,6 +294,7 @@ const initState = {
           nameId: 8,
           name: 'Python Basics',
           timeLimit: 30, 
+          minTestScore: 0.7,
           questions: [ 
             {
               type: 'radio', 
@@ -313,6 +322,7 @@ const initState = {
           nameId: 9,
           name: 'Python Advanced',
           timeLimit: 20, 
+          minTestScore: 0.7,
           questions: [ 
             {
               type: 'radio', 

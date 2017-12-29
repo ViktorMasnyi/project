@@ -40,6 +40,10 @@ class Timer extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
   countDown() {
     // Remove one second, set state so a re-render happens.
     let seconds = this.state.seconds - 1;
@@ -51,10 +55,12 @@ class Timer extends React.Component {
     // Check if we're at zero.
     if (seconds === 0) { 
       clearInterval(this.timer);
+      this.props.handleFinishTest();
     }
   }
 
   render() {
+    if (this.props.isOver) clearInterval(this.timer);
     this.props.startTimer && this.startTimer();
     return(
       <div>        

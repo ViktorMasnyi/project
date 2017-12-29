@@ -2,8 +2,7 @@ import React from 'react';
 
 const TestReport = (props) => { 
   return (    
-    <ul>
-      {console.log('TestReport props', props)}      
+    <ul>  
       {        
         props.userTests.map(function(userTest, id) { 
           return <li key={`test${id}`}>Test name: {props.test[userTest.testTopicId][userTest.nameId]}
