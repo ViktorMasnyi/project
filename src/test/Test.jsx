@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import Answers from "./Answers";
 import MyButton from "./MyButton";
 import Timer from "./Timer"
+import TestFinishAlert from "./TestFinishAlert";
 
 class Test extends Component {
   constructor(props) {
@@ -12,11 +13,13 @@ class Test extends Component {
       activeIndex: null,
       targetTest: {},
       userAnswers: {},
+      testStatus: 'fail',
       isOver: false
     };
     this.handleActiveQuestion = this.handleActiveQuestion.bind(this); 
     this.handleActiveQuestionAnswer = this.handleActiveQuestionAnswer.bind(this);     
     this.handleFinishTest = this.handleFinishTest.bind(this);
+    this.handleAlertClick = this.handleAlertClick.bind(this);
   };
 
   componentWillMount () {
@@ -56,7 +59,6 @@ class Test extends Component {
     let numUserAnswers = 0;
     let testScore = 0;
     let answerScore = 0;
-    let testStatus = 'fail';
     for (let i = 0; i < correctAnswers.length; i++) { // looping for question answers inside User answers
       if (userAnswers[i] === undefined) continue;
       numCorrAnswers = correctAnswers[i].length;
@@ -71,12 +73,19 @@ class Test extends Component {
       console.log(testScore)
     }
     testScore / correctAnswers.length >= this.state.targetTest.minTestScore
-      ? testStatus = 'pass' 
-      : testStatus = 'fail';
-      alert(`You have ${testStatus}ed ${this.state.targetTest.name} test`);
-
-    this.setState({isOver: true});
+      ? this.setState({testStatus: 'pass'}) 
+      : this.setState({testStatus: 'fail'}) ;
+      //alert(`You have ${this.state.testStatus}ed ${this.state.targetTest.name} test`);
+    this.setState({isOver: true});   
   };
+
+  handleAlertClick = () => {
+    this.setState({isOver: false});
+    this.props.updateUserStats(
+      this.state.testStatus,
+      this.state.targetTest.nameId
+    )
+  }
 
   render () {
     let targetTest = this.state.targetTest;    
@@ -91,8 +100,8 @@ class Test extends Component {
     return (      
       <main className="main">
       {
-        (this.props.authUserId > 0) ?
-          <div className="test__container">
+        (this.props.authUserId > 0)
+        ? <div className="test__container">
             <div className="test__header">
               <h2 className="test__heading">{targetTest.name}</h2>
               <button onClick={this.handleFinishTest} value="end test" children="END TEST"/>
@@ -122,8 +131,14 @@ class Test extends Component {
                 {answers}
               </div>
             </div>
-          </div> :
-          <p>Please sign in <NavLink className="navbar__item" activeClassName="navbar__item-active" to="/Login">here</NavLink></p>
+            <TestFinishAlert 
+              isOver={this.state.isOver}
+              testStatus={this.state.testStatus}
+              testName={this.state.targetTest.name}
+              handleAlertClick={this.handleAlertClick}
+            />
+          </div>        
+        : <p>Please sign in <NavLink className="navbar__item" activeClassName="navbar__item-active" to="/Login">here</NavLink></p>
         }
       </main>    
     )

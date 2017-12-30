@@ -24,7 +24,7 @@ const Header = (props) => (
         />
         <input className="header__input header__reset" type="reset" 
           onClick={props.handleReset} value="X"
-        />        
+        />      
       </form>
       {/*<a className="header__login link" href="Login">Войти</a>*/}
       <input className="header__login link" 

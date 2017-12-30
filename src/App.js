@@ -29,6 +29,7 @@ class App extends Component {
     this.handleSearch = this.handleSearch.bind(this);
     this.handleReset = this.handleReset.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
+    this.updateUserStats = this.updateUserStats.bind(this);
   };
 
   handleSearch = function(searchStr, isSearchActive) {
@@ -73,7 +74,12 @@ class App extends Component {
 
   handleLogout = () => {
     this.setState({authUserId: 0});
-  }; 
+  };
+
+  updateUserStats = (testStatus, testId) => {
+    console.log('testStatus', testStatus, 'testId', testId)
+    
+  };
 
   TestsCatalogWithProps = () => {
     return (
@@ -89,7 +95,11 @@ class App extends Component {
   };
 
   TestWithProps = (props) => {
-      return <Test {...props} test={this.state.test} authUserId={this.state.authUserId} />      
+      return <Test {...props} 
+        test={this.state.test}
+        authUserId={this.state.authUserId}
+        updateUserStats={this.updateUserStats}
+      />      
     }
     
   LoginWithProps = (props) => {

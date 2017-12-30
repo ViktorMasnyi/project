@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { NavLink } from "react-router-dom";
 
 const TestsList = ({ tests, targetGroup }) => { // render list of tests for a given Test Group

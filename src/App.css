@@ -270,7 +270,6 @@
   width: 90%;
   margin: 5px;
   padding: 5px;
-
 }
 
 .test__header { 
@@ -319,6 +318,49 @@
   display: flex;
   flex-direction: column;
 }
+
+/* modal window */
+
+.test__popupoverlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+  transition: opacity 200ms;
+  visibility: visible;
+  opacity: 1;
+  z-index: +500;
+  display: flex;
+  align-items: center;
+}
+
+.test__popup {
+  font-size: 1.5em;
+  margin: 100px auto;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #666;
+  border-radius: 4px;
+  width: 300px;
+  box-shadow: 0 0 50px rgba(0,0,0,0.5);
+  position: relative;  
+  z-index: +1000;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.test__popupclose {
+  display: inline-block;
+  margin-top: 20px;
+  width: 80px;
+  font-size: 1em;
+}
+
+
 
 /* Gallery styling - TO ADD MASONRY*/
 
