@@ -10,6 +10,7 @@ const initState = {
           {
             testTopicId: 0,
             nameId: 0,
+            name: 'Java Basics',
             testDate: '',
             testStatus: 'pass', // last test status
             testAttempts: 2,
@@ -18,6 +19,7 @@ const initState = {
           {
             testTopicId: 0,
             nameId: 4,
+            name: 'C++ Basics',
             testDate: '',
             testStatus: 'fail',
             testAttempts: 1,

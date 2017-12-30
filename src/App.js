@@ -21,7 +21,7 @@ class App extends Component {
   constructor (props) {
     super(props);
     this.state = initState;
-    this.state.authUserId = 1; //set to 0 on production
+    this.state.authUserId = 0; //set to 0 on production
     this.state.authUserIndex = null;
     this.state.authUserProps = {};
     this.state.foundTests = [];
@@ -82,34 +82,35 @@ class App extends Component {
     this.setState({authUserId: 0});
   };
 
-  updateUserStats = (testStatus, testId) => {    
+  updateUserStats = (testStatus, testId, testName) => {    
     //console.log('testStatus', testStatus, 'testId', testId)
     let authUserTests = this.state.authUserProps.userTests;
     let testUpdate = {};
     for (let i = 0; i < authUserTests.length; i++) {
-      //console.log('testId', testId, 'authUserTests[i].nameId', authUserTests[i].nameId, 'i:', i)
+      console.log('testId', testId, 'authUserTests[i].nameId', authUserTests[i].nameId, 'i:', i)
       if (testId === authUserTests[i].nameId) {
         testUpdate.nameId = testId;
+        testUpdate.name = testName;
         testUpdate.testAttempts = authUserTests[i].testAttempts + 1;
         testUpdate.testStatus = testStatus;
         testUpdate.testDate = new Date().toLocaleString();
         //console.log('authUserTests[i]:', authUserTests[i])
         console.log('testUpdate',testUpdate)
-        this.setState({[authUserTests[i]]: testUpdate})
+        //this.setState({[authUserTests[i]]: testUpdate})
         authUserTests[i] = testUpdate;
         this.forceUpdate();
-      }
-      else {
-        authUserTests.push({
-          nameId: testId,
-          testAttempts: 1,
-          testDate: new Date().toLocaleString(),
-          testStatus: testStatus
-        });
-        this.forceUpdate();
-      }
-      break;
+        return true;
+      }       
     }
+    authUserTests.push({
+      nameId: testId,
+      name: testName,
+      testAttempts: 1,
+      testDate: new Date().toLocaleString(),
+      testStatus: testStatus
+    });
+    this.forceUpdate();
+    return true;      
   };
 
   TestsCatalogWithProps = () => {

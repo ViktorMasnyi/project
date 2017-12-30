@@ -9,17 +9,18 @@ class UserHomePage extends Component {
   }
   render () {
     const {userName, userTests, userId} = this.props.authUserProps;
+    //console.log('UserHomePage userTests', userTests)
     return (             
       <main className="main">      
         {
-          (userId > 0) ? 
-            <div>          
+          (userId > 0)
+          ? <div>          
               <h1>Welcome, {userName}! </h1>
               <br />
               <h2>Your tests history</h2>
               <TestReport userTests={userTests} test={this.props.test} />
-            </div> : 
-            <p>Please sign in <NavLink className="navbar__item" activeClassName="navbar__item-active" to="/Login">here</NavLink></p>
+            </div> 
+          : <p>Please sign in <NavLink className="navbar__item" activeClassName="navbar__item-active" to="/Login">here</NavLink></p>
         }
       </main>
     )

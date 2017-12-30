@@ -82,7 +82,8 @@ class Test extends Component {
     this.setState({isOver: false});
     this.props.updateUserStats(
       this.state.testStatus,
-      this.state.targetTest.nameId
+      this.state.targetTest.nameId,
+      this.state.targetTest.name
     )
   }
 
