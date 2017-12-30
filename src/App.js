@@ -22,6 +22,7 @@ class App extends Component {
     super(props);
     this.state = initState;
     this.state.authUserId = 1; //set to 0 on production
+    this.state.authUserIndex = null;
     this.state.authUserProps = {};
     this.state.foundTests = [];
     this.state.foundGroups = [];
@@ -65,8 +66,13 @@ class App extends Component {
 
   handleLogin = (e) => {
     const [inputLogin, inputPassword] = [e.target.login.value, e.target.password.value];
-    const [authUser] = this.state.users.filter((user) => {
-      return user.userLogin === inputLogin && user.userPass === inputPassword
+    const [authUser] = this.state.users.filter((user, userIndex) => {
+      if (user.userLogin === inputLogin && user.userPass === inputPassword) {
+        this.setState({authUserIndex: userIndex})
+        return true
+      }
+      return false
+      
     })
     authUser ? this.setState({authUserId: authUser.userId}) : this.setState({authUserId: 0});
     this.setState({authUserProps: authUser})
@@ -76,9 +82,34 @@ class App extends Component {
     this.setState({authUserId: 0});
   };
 
-  updateUserStats = (testStatus, testId) => {
-    console.log('testStatus', testStatus, 'testId', testId)
-    
+  updateUserStats = (testStatus, testId) => {    
+    //console.log('testStatus', testStatus, 'testId', testId)
+    let authUserTests = this.state.authUserProps.userTests;
+    let testUpdate = {};
+    for (let i = 0; i < authUserTests.length; i++) {
+      //console.log('testId', testId, 'authUserTests[i].nameId', authUserTests[i].nameId, 'i:', i)
+      if (testId === authUserTests[i].nameId) {
+        testUpdate.nameId = testId;
+        testUpdate.testAttempts = authUserTests[i].testAttempts + 1;
+        testUpdate.testStatus = testStatus;
+        testUpdate.testDate = new Date().toLocaleString();
+        //console.log('authUserTests[i]:', authUserTests[i])
+        console.log('testUpdate',testUpdate)
+        this.setState({[authUserTests[i]]: testUpdate})
+        authUserTests[i] = testUpdate;
+        this.forceUpdate();
+      }
+      else {
+        authUserTests.push({
+          nameId: testId,
+          testAttempts: 1,
+          testDate: new Date().toLocaleString(),
+          testStatus: testStatus
+        });
+        this.forceUpdate();
+      }
+      break;
+    }
   };
 
   TestsCatalogWithProps = () => {

@@ -70,7 +70,6 @@ class Test extends Component {
         if(correctAnswers[i].indexOf(userAnswers[i][j]) > -1) answerScore++;
       };
       if (answerScore === numCorrAnswers) testScore++;
-      console.log(testScore)
     }
     testScore / correctAnswers.length >= this.state.targetTest.minTestScore
       ? this.setState({testStatus: 'pass'}) 
