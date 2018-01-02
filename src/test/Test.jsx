@@ -16,7 +16,6 @@ class Test extends Component {
     this.state = {
       activeQuestion: {},
       activeIndex: null,
-      targetTest: {},
       userAnswers: {},
       testStatus: 'fail',
       isOver: false,

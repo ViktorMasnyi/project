@@ -20,7 +20,8 @@ class TestsCatalog extends Component {
   
   render() {
     let isSearchActive = this.props.isSearchActive;
-    let renderAllTests = null;           
+    let renderAllTests = null;
+    console.log('test catalog', this.props);           
     if (!isSearchActive) {
       renderAllTests = <TestsAll test={this.props.test} />;
     } else {
@@ -29,10 +30,6 @@ class TestsCatalog extends Component {
     return (
       <main className="main">
         <div className="catalog">
-          {/*<form action="">
-            <input className="header__input" type="text" onChange={this.handleChange} placeholder="найти тест" />
-            <input className="header__input header__reset" type="reset" onClick={this.handleReset} value="X" />
-          </form>*/}
           {renderAllTests}
         </div>
       </main>
