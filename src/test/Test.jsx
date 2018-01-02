@@ -7,33 +7,26 @@ import TestFinishAlert from "./TestFinishAlert";
 
 class Test extends Component {
   constructor(props) {
-    super(props); 
+    super(props);
+    let targetGroup = this.props.test[this.props.match.params.targetGroup];    
+    let nameIdMatch = this.props.match.params.nameId; // nameId is a siquence no. of test inside Test Group -> tests[]
+    let [testMatch] = targetGroup.tests.filter((test) => {
+      return +test.nameId === +nameIdMatch;     
+    });
     this.state = {
       activeQuestion: {},
       activeIndex: null,
       targetTest: {},
       userAnswers: {},
       testStatus: 'fail',
-      isOver: false
+      isOver: false,
+      targetTest: testMatch
     };
     this.handleActiveQuestion = this.handleActiveQuestion.bind(this); 
     this.handleActiveQuestionAnswer = this.handleActiveQuestionAnswer.bind(this);     
     this.handleFinishTest = this.handleFinishTest.bind(this);
     this.handleAlertClick = this.handleAlertClick.bind(this);
   };
-
-  componentWillMount () {
-    let targetGroup = this.props.test[this.props.match.params.targetGroup];    
-    let nameIdMatch = this.props.match.params.nameId; // nameId is a siquence no. of test inside Test Group -> tests[]
-    let [testMatch] = targetGroup.tests.filter((test) => {
-      return +test.nameId === +nameIdMatch;     
-    })
-    this.setState({targetTest: testMatch}); 
-  }
- 
-  componentWillUnmount () {
-    this.setState({activeQuestion: {}});
-  }
 
   handleActiveQuestion = (question, id) => {
     this.setState({ 
@@ -52,7 +45,7 @@ class Test extends Component {
     });
   };
 
-  handleFinishTest = () => {  // FINISH it
+  handleFinishTest = () => {
     const correctAnswers = this.state.targetTest.questions.map((question, id) => question.correctAnswer); //Array of Arrays
     const userAnswers = this.state.userAnswers; // may have less answers than correctAnswers
     let numCorrAnswers = 0;
@@ -66,15 +59,13 @@ class Test extends Component {
       answerScore = 0;
       if (numCorrAnswers !== numUserAnswers) continue; // check q-ty of answers for i-th question
       for (let j = 0; j < numCorrAnswers; j++) { // looping for part of the answer (radio=1/checkbox=n)
-       //console.log('[userAnswers[i]][j]', userAnswers[i][j],'i=', i, 'j=', j)
         if(correctAnswers[i].indexOf(userAnswers[i][j]) > -1) answerScore++;
       };
       if (answerScore === numCorrAnswers) testScore++;
     }
     testScore / correctAnswers.length >= this.state.targetTest.minTestScore
       ? this.setState({testStatus: 'pass'}) 
-      : this.setState({testStatus: 'fail'}) ;
-      //alert(`You have ${this.state.testStatus}ed ${this.state.targetTest.name} test`);
+      : this.setState({testStatus: 'fail'});
     this.setState({isOver: true});   
   };
 
@@ -85,17 +76,19 @@ class Test extends Component {
       this.state.targetTest.nameId,
       this.state.targetTest.name
     )
+    this.props.history.push('/UserHomePage');
   }
 
   render () {
     let targetTest = this.state.targetTest;    
-    let answers = this.state.activeQuestion.type ? 
-      <Answers 
+    let answers = this.state.activeQuestion.type
+    ? <Answers 
         handleActiveQuestionAnswer={this.handleActiveQuestionAnswer} 
         activeQuestion = {this.state.activeQuestion} 
         userAnswers = {this.state.userAnswers}
         activeIndex = {this.state.activeIndex}
-      /> : null;
+      />
+    : null;
 
     return (      
       <main className="main">

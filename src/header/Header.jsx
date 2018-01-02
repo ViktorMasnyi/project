@@ -22,9 +22,8 @@ const Header = (props) => (
           onChange={(event) => {props.handleSearch(event.target.value)}}
           type="text" placeholder="search test" 
         />
-        <input className="header__input header__reset" type="reset" 
-          onClick={props.handleReset} value="X"
-        />      
+        <input className="header__reset" type="reset" 
+          onClick={props.handleReset} value={"\u2715"} />
       </form>
       {/*<a className="header__login link" href="Login">Войти</a>*/}
       <input className="header__login link" 

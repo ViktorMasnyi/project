@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import Answer from "./Answer";
 
-class Answers extends Component { 
-  constructor (props) {
-    super(props); 
-    this.state = {}
-  }
-  
+class Answers extends Component {  
   handleAnswerChange = (e) => {
     const type = e.target.type;
     const value = e.target.value;

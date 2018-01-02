@@ -22,16 +22,12 @@ class Login extends Component {
           className="loginpage"
           autoComplete="off"
         >
-          <label className="loginpage_label" htmlFor="login">login</label>
-          <input className="loginpage_item"  name="login" type="text" />
-          <label className="loginpage_label" htmlFor="password">password</label>
-          <input className="loginpage_item" name="password" type="text" />
-          <input
-            type="submit"
-            className="loginpage_item" 
-            value="Login" 
-          />
-          <a className="link" href="Login/Signup">signup</a>
+          <label className="loginpage__label" htmlFor="login">login</label>
+          <input className="loginpage__item"  name="login" type="text" />
+          <label className="loginpage__label" htmlFor="password">password</label>
+          <input className="loginpage__item" name="password" type="password" />
+          <input className="loginpage__button" value="Login" type="submit" />
+          {/* <a className="link" href="Login/Signup">signup</a> */}
         </form>
       </main>
     )

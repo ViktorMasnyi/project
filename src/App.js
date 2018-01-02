@@ -144,7 +144,7 @@ class App extends Component {
   UserHomePageWithProps = (props) => {
     return <UserHomePage {...props} authUserProps={ this.state.authUserProps } test={this.state.test}/>
   };
-
+  
   render() {
     return (
       <Router history={history}>
@@ -156,24 +156,37 @@ class App extends Component {
               <div className="dropdown">
                 <li><NavLink className="navbar__item dropbtn" activeClassName="navbar__item-active" to="/Tests">Каталог тестов</NavLink>
                   <div className="dropdown-content">
-                    <a href="/Tests">по популярности</a>
-                    <a href="/Tests">по алфавиту</a>
-                    <a href="/Tests">по темам</a>
+                    <NavLink to="/Tests/:byPop">by popularity</NavLink>
+                    <NavLink to="/Tests/:byAlph">by alphabet</NavLink>
+                    <NavLink to="/Tests/:byTheme">by theme</NavLink>
                   </div>
                 </li>
               </div>
               <li><NavLink className="navbar__item" activeClassName="navbar__item-active" to="/Gallery">Graduates Gallery</NavLink></li>
-              <li><NavLink className="navbar__item" activeClassName="navbar__item-active" to="/Contacts">Контакты</NavLink></li>
-              {
-                (this.state.authUserId > 0) ?                  
-                  <li><a className="navbar__item" onClick={this.handleLogout}>Logout</a></li> :
-                  <li><NavLink className="navbar__item" activeClassName="navbar__item-active" to="/Login">Login</NavLink></li>
+              <li><NavLink className="navbar__item" activeClassName="navbar__item-active" to="/Contacts">Contacts</NavLink></li>
+              {/* {
+                (this.state.authUserId > 0)
+                ? <li><NavLink className="navbar__item" activeClassName="navbar__item-active" to="/UserHomePage">Cabinet</NavLink></li>
+                : null
               }
+              {
+                (this.state.authUserId > 0)
+                ? <li><a className="navbar__item" onClick={this.handleLogout}>Logout</a></li> 
+                : <li><NavLink className="navbar__item" activeClassName="navbar__item-active" to="/Login">Login</NavLink></li>
+              }  */}
+              {this.state.authUserId && <li><NavLink className="navbar__item" activeClassName="navbar__item-active" to="/UserHomePage">Cabinet</NavLink></li>}
+              {this.state.authUserId && <li><a className="navbar__item" onClick={this.handleLogout}>Logout</a></li>}
+              {!this.state.authUserId && <li><NavLink className="navbar__item" activeClassName="navbar__item-active" to="/Login">Login</NavLink></li>}
             </ul>
           </nav>
           <Switch>
             <Route exact path="/" component={Main} />
             <Route path="/Tests" render={this.TestsCatalogWithProps} />
+
+            <Route path="/Tests/:byPop" render={this.TestsCatalogWithProps} />
+            <Route path="/Tests/:byAlph" render={this.TestsCatalogWithProps} />
+            <Route path="/Tests/:byTheme" render={this.TestsCatalogWithProps} />
+
             <Route path="/Test/:targetGroup/:nameId" render={this.TestWithProps} />
             <Route path="/Contacts" component={Contacts} />
             <Route path="/Login" render={this.LoginWithProps} />

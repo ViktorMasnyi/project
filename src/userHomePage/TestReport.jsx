@@ -4,7 +4,7 @@ const TestReport = (props) => {
   return (    
     <ul>  
       {        
-        props.userTests.map(function(userTest, id) { 
+        props.userTests.map((userTest, id) => { 
           return <li key={`test${id}`}>Test name: {userTest.name}
             <p>duration: {userTest.testTimeSpent} SEC.</p>
             <p>Total test attempts: {userTest.testAttempts}</p>
