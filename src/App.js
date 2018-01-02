@@ -4,6 +4,7 @@ import createBrowserHistory from "history/createBrowserHistory";
 import "./App.css";
 import "./Normalize.css";
 import Header from "./header/Header";
+import Menu from "./menu/Menu";
 import Main from "./main/Main";
 import Test from "./test/Test";
 import Footer from "./footer/Footer";
@@ -145,58 +146,10 @@ class App extends Component {
       <Router history={history}>
         <div className="App">
           <Header props={this.props} handleSearch={this.handleSearch} handleReset={this.handleReset} />          
-          <nav className="menucontainer">
-            <ul className="navbar">
-              <li><NavLink className="navbar__item" activeClassName="navbar__item-active" to="/">Главная</NavLink></li>
-              <div className="dropdown">
-                <li><NavLink className="navbar__item dropbtn" activeClassName="navbar__item-active" to="/Tests">Каталог тестов</NavLink>
-                  <div className="dropdown-content">
-                    <NavLink to="/Tests/1">by popularity</NavLink>
-                    <NavLink to="/Tests/2">by alphabet</NavLink>
-                    <NavLink to="/Tests/3">by theme</NavLink>
-                  </div>
-                </li>
-              </div>
-              <li><NavLink className="navbar__item" activeClassName="navbar__item-active" to="/Gallery">Graduates Gallery</NavLink></li>
-              <li><NavLink className="navbar__item" activeClassName="navbar__item-active" to="/Contacts">Contacts</NavLink></li>          
-              {
-                !!this.state.authUserId && 
-                  <li>
-                    <NavLink className="navbar__item" 
-                    activeClassName="navbar__item-active"
-                    to="/UserHomePage">
-                      Cabinet
-                    </NavLink>
-                  </li>
-              }
-              {
-                !!this.state.authUserId && 
-                  <li>
-                    <a className="navbar__item"
-                      onClick={this.handleLogout}
-                    >
-                      Logout
-                    </a>
-                  </li>
-              }
-              {
-                !this.state.authUserId && 
-                  <li>
-                    <NavLink className="navbar__item" 
-                      activeClassName="navbar__item-active" 
-                      to="/Login"
-                    >
-                      Login
-                    </NavLink>
-                  </li>
-              }
-            </ul>
-          </nav>
+          <Menu authUserId={this.state.authUserId}/>
           <Switch>
             <Route exact path="/" component={Main} />
-
             <Route path="/Tests/:sortBy?" render={this.TestsCatalogWithProps} />
-
             <Route path="/Test/:targetGroup/:nameId" render={this.TestWithProps} />
             <Route path="/Contacts" component={Contacts} />
             <Route path="/Login" render={this.LoginWithProps} />
