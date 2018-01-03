@@ -10,9 +10,9 @@ const Menu = (props) => {
         <div className="dropdown">
           <li><NavLink className="navbar__item dropbtn" activeClassName="navbar__item-active" to="/Tests">Каталог тестов</NavLink>
             <div className="dropdown-content">
-              <NavLink to="/Tests/1">by popularity</NavLink>
-              <NavLink to="/Tests/2">by alphabet</NavLink>
-              <NavLink to="/Tests/3">by theme</NavLink>
+              <NavLink to="/Tests/bypop">by popularity</NavLink>
+              <NavLink to="/Tests/byalphabet">by alphabet</NavLink>
+              <NavLink to="/Tests/bytheme">by theme</NavLink>
             </div>
           </li>
         </div>

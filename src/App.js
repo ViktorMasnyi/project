@@ -34,14 +34,14 @@ class App extends Component {
     this.updateUserStats = this.updateUserStats.bind(this);
   };
 
-  handleSearch = function(searchStr, isSearchActive) {
+  handleSearch = (searchStr, isSearchActive) => {
     var searchQuery = searchStr.toLowerCase();
     var foundT = [];
     var foundG = [];
-    this.state.test.map((testGroup, id) => {   
+    this.state.test.forEach((testGroup, id) => {   
       if (testGroup.topicName.toLowerCase().indexOf(searchQuery) !== - 1)
         foundG.push(testGroup);
-        testGroup.tests.map(function(test) {        
+        testGroup.tests.forEach(function(test) {        
           if (test.name.toLowerCase().indexOf(searchQuery) !== - 1) {
             test.groupId = testGroup.topicId;
             foundT.push(test);            
@@ -109,9 +109,9 @@ class App extends Component {
     return true;      
   };
 
-  TestsCatalogWithProps = () => {
+  TestsCatalogWithProps = (props) => {
     return (
-      <TestsCatalog
+      <TestsCatalog {...props}
         handleSearch={this.handleSearch}
         handleReset={this.handleReset}
         foundTests={this.state.foundTests}
