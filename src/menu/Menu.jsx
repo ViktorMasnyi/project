@@ -1,6 +1,5 @@
-import React, { Component } from "react";
-import { Route, Router, NavLink, Switch } from "react-router-dom";
-import createBrowserHistory from "history/createBrowserHistory";
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Menu = (props) => {
   return (
@@ -10,7 +9,6 @@ const Menu = (props) => {
         <div className="dropdown">
           <li><NavLink className="navbar__item dropbtn" activeClassName="navbar__item-active" to="/Tests">Каталог тестов</NavLink>
             <div className="dropdown-content">
-              <NavLink to="/Tests/bypop">by popularity</NavLink>
               <NavLink to="/Tests/byalphabet">by alphabet</NavLink>
               <NavLink to="/Tests/bytheme">by theme</NavLink>
             </div>

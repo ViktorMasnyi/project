@@ -26,24 +26,28 @@ class TestsCatalog extends Component {
   };
 
   componentWillMount() {
-    console.log('componentWillMount')
     if (this.props.match.params.sortBy === 'byalphabet') {
       let flatArr = [];
       this.props.test.forEach((testGroup, id) => {   
-        testGroup.tests.forEach(test => flatArr.push(test))
+        testGroup.tests.forEach(test => {
+          test.groupId = testGroup.topicId;
+          flatArr.push(test)
+        })        
       })
       this.setState({flatTestsArr: flatArr});
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('componentWillReceiveProps props',nextProps)
     if (nextProps.match.params.sortBy !== this.props.match.params.sortBy 
       && nextProps.match.params.sortBy === 'byalphabet') {
       let flatArr = [];
       this.props.test.forEach((testGroup, id) => {   
-        testGroup.tests.forEach(test => flatArr.push(test))
-      });
+        testGroup.tests.forEach(test => {
+          test.groupId = testGroup.topicId;
+          flatArr.push(test)
+        })        
+      })
       this.setState({flatTestsArr: flatArr});
     }
   }
@@ -52,7 +56,6 @@ class TestsCatalog extends Component {
     let isSearchActive = this.props.isSearchActive;
     let renderAllTests = null;    
     let sortBy = this.props.match.params.sortBy;
-    //let sortedTestsList = [{topicName: 'all', tests: [] }];
     let sortedTestsList = [].concat(this.props.test);
     let flatTestsArr = [];
     if (sortBy === 'bytheme') {
@@ -67,9 +70,6 @@ class TestsCatalog extends Component {
         if (a.name > b.name) return 1;  // sort by Test name
         return -1;
       })
-      //sortedTestsList = sortedTestsList[0].tests.concat(flatTestsArr);
-      console.log('case 2 flatTestsArr', flatTestsArr)
-
     };
 
     if ((!isSearchActive && sortBy === undefined) || sortBy === 'bytheme') {
