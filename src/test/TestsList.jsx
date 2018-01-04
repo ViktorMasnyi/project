@@ -7,11 +7,14 @@ const TestsList = ({ tests, targetGroup }) => { // render list of tests for a gi
     <ul>      
       {        
         tests.map((test, nameId) => { // nameId is a siquence no. of test inside Test Group -> tests[]
-          return <li key={test.nameId}>Test name: {test.name}
-            <p>duration: {test.timeLimit} min.</p>
+          return <li key={test.nameId} className="catalog__testcontainer">
+            <img className="catalog__testimage" src={test.imageUrl} />
+            <div>
+            <h3 className="catalog__testname">{test.name}</h3>
+            <p>duration: {parseInt(test.timeLimit / 60)} min.</p>
+            </div>
             <NavLink  className="navbar__item" activeClassName="navbar__item-active" 
-              to={`/Test/${targetGroup ? targetGroup : test.groupId}/${test.nameId}`}>Start test</NavLink>
-            <br/>
+              to={`/Test/${targetGroup ? targetGroup : test.groupId}/${test.nameId}`}>Start</NavLink>
           </li>
         })
       }      

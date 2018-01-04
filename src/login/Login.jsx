@@ -30,7 +30,7 @@ class Login extends Component {
           {/* <a className="link" href="Login/Signup">signup</a> */}
         </form>
       </main>
-    )
+    );
   }
 }
 

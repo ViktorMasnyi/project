@@ -29,11 +29,12 @@ const Menu = (props) => {
         {
           !!props.authUserId && 
             <li>
-              <a className="navbar__item"
-                onClick={this.handleLogout}
+              <NavLink className="navbar__item"
+                onClick={props.handleLogout}
+                to="/Login"
               >
                 Logout
-              </a>
+              </NavLink>
             </li>
         }
         {

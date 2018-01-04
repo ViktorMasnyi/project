@@ -50,24 +50,24 @@ class Pagination extends Component {
     const pages = [];
     const firstPage = page - margin > 1 ?
           <div
-            className="pagination-button pagination-go-first"
+            className="pagination__button pagination__gofirst"
             onClick={this.goFirstPage}
           >1</div> :
           null;
     const lastPage = page + margin < count ?
           <div
-            className="pagination-button pagination-go-last"
+            className="pagination__button pagination__golast"
             onClick={this.goLastPage}
           >{count}</div> :
           null;
     const prevPage = page === 1 ? null :
           <div
-            className="pagination-button"
+            className="pagination__button"
             onClick={this.goPrevPage}
           >prev</div>;
     const nextPage = page === count ? null :
           <div
-            className="pagination-button"
+            className="pagination__button"
             onClick={this.goNextPage}
           >next</div>;
     for (let i = startPage; i <= endPage; i++) {
@@ -75,7 +75,7 @@ class Pagination extends Component {
         <li
           key={i}
           onClick={this.onPageChange}
-          className={classnames('pagination-list-item', 'pagination-button', {
+          className={classnames('pagination__listitem', 'pagination__button', {
             active: i === this.props.page
           })}          
         >
@@ -85,11 +85,11 @@ class Pagination extends Component {
     }
 
     return (
-      <div id="pagination-container">
+      <div id="pagination__container">
         <div id="pagination">
           {prevPage}
           {firstPage}
-          <ul id="pagination-list">
+          <ul id="pagination__list">
             {pages}
           </ul>
           {lastPage}

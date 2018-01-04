@@ -32,8 +32,8 @@ class TestsAll extends Component { // render Test Groups -> Test List (Test Topi
     <ul>
       {
         renderedItems.map((testGroup, id) => (
-            <li key={id}>
-              Test theme: {testGroup.topicName}
+            <li className="catalog__themecontainer" key={id}>
+              <h2 className="catalog__testtheme">Test theme: {testGroup.topicName}</h2>
               <TestsList tests={testGroup.tests} targetGroup={testGroup.topicId} />
               <br/>
             </li>

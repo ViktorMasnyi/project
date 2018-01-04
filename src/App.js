@@ -19,7 +19,7 @@ import initState from "./initState";
 const history = createBrowserHistory();
 
 class App extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = initState;
     this.state.authUserId = 0; //set to 0 on production
@@ -31,6 +31,7 @@ class App extends Component {
     this.handleSearch = this.handleSearch.bind(this);
     this.handleReset = this.handleReset.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
     this.updateUserStats = this.updateUserStats.bind(this);
   };
 
@@ -146,7 +147,7 @@ class App extends Component {
       <Router history={history}>
         <div className="App">
           <Header props={this.props} handleSearch={this.handleSearch} handleReset={this.handleReset} />          
-          <Menu authUserId={this.state.authUserId}/>
+          <Menu authUserId={this.state.authUserId} handleLogout={this.handleLogout} />
           <Switch>
             <Route exact path="/" component={Main} />
             <Route path="/Tests/:sortBy?" render={this.TestsCatalogWithProps} />

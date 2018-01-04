@@ -36,8 +36,9 @@ const initState = {
       {                         // nameId
         nameId: 0,
         name: 'Java Basics',
-        timeLimit: 10, 
+        timeLimit: 300, 
         minTestScore: 0.7,
+        imageUrl: 'img/java-starter-icon.png',
         questions: [ 
           {
             type: 'radio', 
@@ -75,8 +76,9 @@ const initState = {
       { 
         nameId: 1,
         name: 'Java Advanced',
-        timeLimit: 20, 
+        timeLimit: 600, 
         minTestScore: 0.7,
+        imageUrl: 'img/java_prof-icon.png',
         questions: [ 
           {
             type: 'radio', 
@@ -109,8 +111,9 @@ const initState = {
       { 
         nameId: 2,
         name: 'Javascript Basics',
-        timeLimit: 300, 
+        timeLimit: 900, 
         minTestScore: 0.7,
+        imageUrl: 'img/javascript-essential-icon.png',
         questions: [ 
           {
             type: 'radio', 
@@ -194,8 +197,9 @@ const initState = {
       { 
         nameId: 3,
         name: 'Javascript Advanced',
-        timeLimit: 20, 
+        timeLimit: 1500, 
         minTestScore: 0.7,
+        imageUrl: 'img/javascript-advanced-icon.png',
         questions: [ 
           {
             type: 'radio', 
@@ -223,13 +227,14 @@ const initState = {
   },
   {
     'topicId': '2',
-    'topicName': 'C++',
+    'topicName': 'C#',
     'tests': [
       { 
         nameId: 4,
-        name: 'C++ Basics',
+        name: 'C# Basics',
         timeLimit: 30, 
         minTestScore: 0.7,
+        imageUrl: 'img/csharp-starter-icon.png',
         questions: [ 
           {
             type: 'radio', 
@@ -255,13 +260,14 @@ const initState = {
       },
       { 
         nameId: 5,
-        name: 'C++ Advanced',
+        name: 'C# Advanced',
         timeLimit: 20, 
         minTestScore: 0.7,
+        imageUrl: 'img/csharp-essential-icon.png',
         questions: [ 
           {
             type: 'radio', 
-            question: 'what is C++?',
+            question: 'what is C#?',
             answer: [
               'first  var',
               'second var', 
@@ -290,8 +296,9 @@ const initState = {
       { 
         nameId: 6,
         name: 'Quality Assurance Basics',
-        timeLimit: 30, 
+        timeLimit: 900, 
         minTestScore: 0.7,
+        imageUrl: 'img/qa-start-icon.png',
         questions: [ 
           {
             type: 'radio', 
@@ -318,8 +325,9 @@ const initState = {
       { 
         nameId: 7,
         name: 'Quality Assurance Advanced',
-        timeLimit: 20, 
+        timeLimit: 1200, 
         minTestScore: 0.7,
+        imageUrl: 'img/qa-start-icon.png',
         questions: [ 
           {
             type: 'radio', 
@@ -352,8 +360,9 @@ const initState = {
       { 
         nameId: 8,
         name: 'Python Basics',
-        timeLimit: 30, 
+        timeLimit: 600, 
         minTestScore: 0.7,
+        imageUrl: 'img/python-starter-icon.png',
         questions: [ 
           {
             type: 'radio', 
@@ -380,8 +389,73 @@ const initState = {
       { 
         nameId: 9,
         name: 'Python Advanced',
-        timeLimit: 20, 
+        timeLimit: 3000, 
         minTestScore: 0.7,
+        imageUrl: 'img/python-essential-icon.png',
+        questions: [ 
+          {
+            type: 'radio', 
+            question: 'what is Python?',
+            answer: [
+              'first  var',
+              'second var', 
+              'third var'
+            ],
+            correctAnswer: ['third var']  
+          },  
+          {
+            type: 'checkbox', 
+            question: 'who is Jesus?',
+            answer: [
+              'first  var',
+              'second var', 
+              'third var'
+            ],
+            correctAnswer: ['first  var', 'third var']
+          }
+        ]
+      }
+    ]
+  },
+  {
+    'topicId': '5',
+    'topicName': 'HTML & CSS',
+    'tests': [
+      { 
+        nameId: 10,
+        name: 'HTML & CSS',
+        timeLimit: 900, 
+        minTestScore: 0.7,
+        imageUrl: 'img/html-and-css-renewed-icon.png',
+        questions: [ 
+          {
+            type: 'radio', 
+            question: 'what is Python means?',
+            answer: [
+              'first  var',
+              'second var', 
+              'third var'
+            ],
+            correctAnswer: ['first  var'  ]
+          },  
+          {
+            type: 'checkbox', 
+            question: 'who is Jesus?',
+            answer: [
+              'first  var',
+              'second var', 
+              'third var'
+            ],
+            correctAnswer: ['first  var', 'third var']
+          }
+        ]
+      },
+      { 
+        nameId: 11,
+        name: 'HTML5 & CSS3',
+        timeLimit: 2000, 
+        minTestScore: 0.7,
+        imageUrl: 'img/html5-and-css3-icon.png',
         questions: [ 
           {
             type: 'radio', 
