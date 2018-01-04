@@ -95,14 +95,14 @@ class Test extends Component {
         (this.props.authUserId > 0)
         ? <div className="test__container">
             <div className="test__header">
-              <h2 className="test__heading">{targetTest.name}</h2>
-              <button onClick={this.handleFinishTest} value="end test" children="END TEST"/>
+              <h2 className="test__heading">{targetTest.name}</h2>              
               <Timer 
                 timeLimit={targetTest.timeLimit}
                 startTimer={this.state.activeQuestion.type}
                 handleFinishTest={this.handleFinishTest}
                 isOver={this.state.isOver}
               />
+              <button onClick={this.handleFinishTest} value="end test" children="END TEST"/>
             </div>
             <div className="test__questions">
               {
@@ -118,10 +118,13 @@ class Test extends Component {
                   </MyButton>
                 )
               }
-                {this.state.activeQuestion && <div className="test__question" children={this.state.activeQuestion.question} />}
-              <div>
-                {answers}
-              </div>
+                {this.state.activeQuestion && 
+                  <div className="test__question">
+                    {this.state.activeQuestion.question}
+                    <div>
+                      {answers}
+                    </div>
+                  </div>}              
             </div>
             <TestFinishAlert 
               isOver={this.state.isOver}

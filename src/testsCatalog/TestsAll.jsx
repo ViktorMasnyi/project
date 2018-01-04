@@ -18,16 +18,18 @@ class TestsAll extends Component { // render Test Groups -> Test List (Test Topi
     this.setState({ page, renderedItems });
   }
 
-  componentDidMount() {   
+  componentWillMount() {
+    console.log('TestsAll componentWillMount', this.props)   
     this.setState({ 
       items: this.props.test, 
-      renderedItems: this.state.items.slice(0, 2), 
-      total: this.state.items.length 
+      renderedItems: this.props.test.slice(0, 2), 
+      total: this.props.test.length 
     });    
   }
 
   render() {
     const { page, total, renderedItems } = this.state;
+    //console.log('tests all "total":', total)
     return (
     <ul>
       {

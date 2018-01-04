@@ -232,7 +232,7 @@ const initState = {
       { 
         nameId: 4,
         name: 'C# Basics',
-        timeLimit: 30, 
+        timeLimit: 600, 
         minTestScore: 0.7,
         imageUrl: 'img/csharp-starter-icon.png',
         questions: [ 
@@ -261,7 +261,7 @@ const initState = {
       { 
         nameId: 5,
         name: 'C# Advanced',
-        timeLimit: 20, 
+        timeLimit: 600, 
         minTestScore: 0.7,
         imageUrl: 'img/csharp-essential-icon.png',
         questions: [ 
