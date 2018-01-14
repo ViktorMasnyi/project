@@ -18,8 +18,7 @@ class TestsAll extends Component { // render Test Groups -> Test List (Test Topi
     this.setState({ page, renderedItems });
   }
 
-  componentWillMount() {
-    console.log('TestsAll componentWillMount', this.props)   
+  componentWillMount() {  
     this.setState({ 
       items: this.props.test, 
       renderedItems: this.props.test.slice(0, 2), 
@@ -29,26 +28,25 @@ class TestsAll extends Component { // render Test Groups -> Test List (Test Topi
 
   render() {
     const { page, total, renderedItems } = this.state;
-    //console.log('tests all "total":', total)
     return (
-    <ul>
-      {
-        renderedItems.map((testGroup, id) => (
-            <li className="catalog__themecontainer" key={id}>
-              <h2 className="catalog__testtheme">Test theme: {testGroup.topicName}</h2>
-              <TestsList tests={testGroup.tests} targetGroup={testGroup.topicId} />
-              <br/>
-            </li>
+      <ul>
+        {
+          renderedItems.map((testGroup, id) => (
+              <li className="catalog__themecontainer" key={id}>
+                <h2 className="catalog__testtheme">Test theme: {testGroup.topicName}</h2>
+                <TestsList tests={testGroup.tests} targetGroup={testGroup.topicId} />
+                <br/>
+              </li>
+            )
           )
-        )
-      }
-      <Pagination
-          margin={2}
-          page={page}
-          count={Math.ceil(total / 2)}
-          onPageChange={this.handlePageChange}
-        />
-    </ul>
+        }
+        <Pagination
+            margin={2}
+            page={page}
+            count={Math.ceil(total / 2)}
+            onPageChange={this.handlePageChange}
+          />
+      </ul>
     );
   }
 };

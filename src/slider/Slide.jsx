@@ -7,12 +7,8 @@ const Slide = ({ image }) => {
     backgroundSize: 'cover',
     backgroundPosition: 'center'
   }
-  return (
-    
-                
-          <div style={background} className="slide" key={image}>slide test content</div>
-     
-   
-  );
+
+  return <div style={background} className="slide" key={image} />
 }
+
 export default Slide

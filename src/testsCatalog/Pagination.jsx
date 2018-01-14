@@ -13,23 +13,14 @@ class Pagination extends Component {
     this.goPrevPage = this.goPrevPage.bind(this);
     this.goNextPage = this.goNextPage.bind(this);
   }
-
-  // componentWillMount(props) {    
-  //   const { margin, page, count } = props;
-  //   const startPage = page > margin ? page - margin : 1;
-  //   const endPage = page + margin > count ? count : page + margin;
-  //   this.setState({ startPage, endPage, count });
-  // }
-
+ 
   componentWillMount() {
-    console.log('componentWillMount', this.props)
     const { margin, page, count } = this.props;
     const startPage = page > margin ? page - margin : 1;
     const endPage = page + margin > count ? count : page + margin;
     this.setState({ startPage, endPage, count });
   }
   componentWillReceiveProps(newProps) {
-    console.log('componentWillReceiveProps', newProps)
     if (newProps === this.props) return;
     const { margin, page, count } = newProps;
     const startPage = page > margin ? page - margin : 1;

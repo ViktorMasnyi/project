@@ -5,20 +5,35 @@ const Menu = (props) => {
   return (
     <nav className="menucontainer">
       <ul className="navbar">
-        <li><NavLink className="navbar__item" activeClassName="navbar__item-active" to="/">Главная</NavLink></li>
-        <div className="dropdown">
-          <li><NavLink className="navbar__item dropbtn" activeClassName="navbar__item-active" to="/Tests">Каталог тестов</NavLink>
+        <li className="navbar__topitem">
+          <NavLink className="navbar__item" activeClassName="navbar__item-active" to="/">
+            Main
+          </NavLink>
+        </li>        
+        <li className="navbar__topitem navbar__topitem--ordered">
+          <div className="dropdown">
+            <NavLink className="navbar__item dropbtn" activeClassName="navbar__item-active" to="/Tests">
+              Tests catalog
+            </NavLink>
             <div className="dropdown-content">
               <NavLink to="/Tests/byalphabet">by alphabet</NavLink>
               <NavLink to="/Tests/bytheme">by theme</NavLink>
             </div>
-          </li>
-        </div>
-        <li><NavLink className="navbar__item" activeClassName="navbar__item-active" to="/Gallery">Graduates Gallery</NavLink></li>
-        <li><NavLink className="navbar__item" activeClassName="navbar__item-active" to="/Contacts">Contacts</NavLink></li>          
+          </div>
+        </li>        
+        <li className="navbar__topitem">
+          <NavLink className="navbar__item" activeClassName="navbar__item-active" to="/Gallery">
+            Graduates Gallery
+          </NavLink>
+        </li>
+        <li className="navbar__topitem">
+          <NavLink className="navbar__item" activeClassName="navbar__item-active" to="/Contacts">
+            Contacts
+          </NavLink>
+        </li>          
         {
           !!props.authUserId && 
-          <li>
+          <li className="navbar__topitem">
             <NavLink className="navbar__item" 
               activeClassName="navbar__item-active"
               to="/UserHomePage">
@@ -28,7 +43,7 @@ const Menu = (props) => {
         }
         {
           !!props.authUserId && 
-            <li>
+            <li className="navbar__topitem">
               <NavLink className="navbar__item"
                 onClick={props.handleLogout}
                 to="/Login"
@@ -39,7 +54,7 @@ const Menu = (props) => {
         }
         {
           !props.authUserId && 
-            <li>
+            <li className="navbar__topitem">
               <NavLink className="navbar__item" 
                 activeClassName="navbar__item-active" 
                 to="/Login"

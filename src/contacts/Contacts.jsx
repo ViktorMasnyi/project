@@ -3,8 +3,7 @@ import MyMapComponent from "./MyMapComponent";
 
 const Contacts = () => (
   <main className="main">
-    <div className="contacts">
-      this is the Contact component    
+    <div className="contacts">    
       <MyMapComponent
         isMarkerShown
         googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZ1mb117y5IUWlYqHRpajl6bxhrCQeuGI&v=3.exp&libraries=geometry,drawing,places"

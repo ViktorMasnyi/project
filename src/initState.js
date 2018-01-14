@@ -5,7 +5,7 @@ const initState = {
       userIsAdmin: 'false',
       userLogin: '1',
       userPass: '1',
-      userName: 'User Name',
+      userName: 'Black Warrior',
       userTests: [
         {
           testTopicId: 0,
@@ -42,34 +42,34 @@ const initState = {
         questions: [ 
           {
             type: 'radio', 
-            question: 'what is Java?',
+            question: '2x4?',
             answer: [
-              'first var',
-              'second var', 
-              'third var'
+              '8',
+              '14', 
+              '6'
             ],
-            correctAnswer: ['first var']
+            correctAnswer: ['8']
           },
           {
             type: 'radio', 
-            question: 'what is closure?',
+            question: '6x8?',
             answer: [
-              'answer no 1',
-              'answer no 2', 
-              'answer no 3',
-              'answer no 4'
+              '24',
+              '42', 
+              '48',
+              '52'
             ],
-            correctAnswer: ['answer no 1']
+            correctAnswer: ['48']
           },    
           {
             type: 'checkbox', 
-            question: 'who is Jesus?',
+            question: '5x9?',
             answer: [
-              'first var',
-              'second var', 
-              'third var'
+              '64',
+              '45', 
+              '9x5'
             ],
-            correctAnswer: ['first var', 'third var']
+            correctAnswer: ['45', '9x5']
           }
         ]
       },
@@ -92,13 +92,13 @@ const initState = {
           },  
           {
             type: 'checkbox', 
-            question: 'who is Jesus?',
+            question: 'What value lays in the middle?',
             answer: [
               'first  var',
               'second var', 
               'third var'
             ],
-            correctAnswer: ['first  var', 'third var']
+            correctAnswer: ['second var']
           }
         ]
       }
@@ -118,17 +118,17 @@ const initState = {
           {
             type: 'radio', 
             question: 
-              'Что такое тернарный оператор?',
+              'What is ternary operator?',
             answer: [
-              'Это цикл',
-              'Это условная конструкция',              
-              'Это ключевое слово'
+              'this is the cycle',
+              'this is the condition statement',              
+              'this is the keyword'
             ],
-            correctAnswer: ['Это условная конструкция']
+            correctAnswer: ['this is the condition statement']
           },  
           {
             type: 'checkbox', 
-            question: 'Какие циклические конструкции есть в JavaScript?',
+            question: 'What types of cycles are available in JavaScript?',
             answer: [
               'for()',
               'while(){}', 
@@ -139,18 +139,18 @@ const initState = {
           },  
           {
             type: 'radio', 
-            question: 'Что такое условная конструкция?',
+            question: 'What is conditional statement?',
             answer: [
-              'Блок кода, который выполняется определенное количество раз',
-              'Блок кода, который выполняется при определенном условии', 
-              'Это функция',
-              'Это массив'
+              'Block of code, that can be executed many times',
+              'Block of code, that will be executed on certain condition', 
+              'This is function',
+              'This is array'
             ],
-            correctAnswer: ['Блок кода, который выполняется при определенном условии']
+            correctAnswer: ['Block of code, that will be executed on certain condition']
           },  
           {
             type: 'radio', 
-            question: 'Какое свойство возвращает длину массива?',
+            question: 'What property returns array length?',
             answer: [
               'write',
               'insert', 
@@ -161,18 +161,18 @@ const initState = {
           },  
           {
             type: 'radio', 
-            question: 'Ассоциативный массив – это массив:',
+            question: 'Associative array, it is array that:',
             answer: [
-              'где данные хранятся по номерам',
-              'где данные хранятся по произвольному ключу', 
-              'такого массива не существует',
-              'где данные хранятся по значениям'
+              'stores data with numbered indexes.',
+              'stores data with on an arbitrary key', 
+              'does not exists',
+              'stores data by its value'
             ],
-            correctAnswer: ['где данные хранятся по произвольному ключу']
+            correctAnswer: ['stores data with on an arbitrary key']
           },  
           {
             type: 'radio', 
-            question: 'Требуется вернуть фрагмент массива или подмассив. Какой метод для этого следует вызвать',
+            question: 'You need to return part of a given array. What method should be used in this case?',
             answer: [
               'join();',
               'reverse();', 
@@ -183,14 +183,14 @@ const initState = {
           },  
           {
             type: 'radio', 
-            question: 'Выполнен код: var a = Array(8); Какой массив в результате будет создан?',
+            question: 'Consider code: var a = Array(8); What will be result array?',
             answer: [
-              'Массив на один элемент с числом «8»',
-              'Пустой массив на «8» элементов', 
-              'Массив с «8» элементов заполненный числами «8»',
-              'Так создавать массив нельзя'
+              'Array with one element with value of "8"',
+              'Array with "8" empty elements', 
+              'Array with "8" elements, each element has value of "8"',
+              'There in not valid way to define array'
             ],
-            correctAnswer: ['Пустой массив на «8» элементов']
+            correctAnswer: ['Array with "8" empty elements']
           }
         ]
       },
@@ -213,13 +213,13 @@ const initState = {
           },  
           {
             type: 'checkbox', 
-            question: 'who is Jesus?',
+            question: 'What value lays in the middle?',
             answer: [
               'first  var',
               'second var', 
               'third var'
             ],
-            correctAnswer: ['first  var', 'third var']
+            correctAnswer: ['second var']
           }
         ]
       }
@@ -248,13 +248,13 @@ const initState = {
           },  
           {
             type: 'checkbox', 
-            question: 'who is Jesus?',
+            question: 'What value lays in the middle?',
             answer: [
               'first  var',
               'second var', 
               'third var'
             ],
-            correctAnswer: ['first  var', 'third var']
+            correctAnswer: ['second var']
           }
         ]
       },
@@ -277,13 +277,13 @@ const initState = {
           },  
           {
             type: 'checkbox', 
-            question: 'who is Jesus?',
+            question: 'What value lays in the middle?',
             answer: [
               'first  var',
               'second var', 
               'third var'
             ],
-            correctAnswer: ['first  var', 'third var']
+            correctAnswer: ['second var']
           }
         ]
       }
@@ -312,13 +312,13 @@ const initState = {
           },  
           {
             type: 'checkbox', 
-            question: 'who is Jesus?',
+            question: 'What value lays in the middle?',
             answer: [
               'first  var',
               'second var', 
               'third var'
             ],
-            correctAnswer: ['first  var', 'third var']
+            correctAnswer: ['second var']
           }
         ]
       },
@@ -341,13 +341,13 @@ const initState = {
           },  
           {
             type: 'checkbox', 
-            question: 'who is Jesus?',
+            question: 'What value lays in the middle?',
             answer: [
               'first  var',
               'second var', 
               'third var'
             ],
-            correctAnswer: ['first  var', 'third var']
+            correctAnswer: ['second var']
           }
         ]
       }
@@ -376,13 +376,13 @@ const initState = {
           },  
           {
             type: 'checkbox', 
-            question: 'who is Jesus?',
+            question: 'What value lays in the middle?',
             answer: [
               'first  var',
               'second var', 
               'third var'
             ],
-            correctAnswer: ['first  var', 'third var']
+            correctAnswer: ['second var']
           }
         ]
       },
@@ -405,13 +405,13 @@ const initState = {
           },  
           {
             type: 'checkbox', 
-            question: 'who is Jesus?',
+            question: 'What value lays in the middle?',
             answer: [
               'first  var',
               'second var', 
               'third var'
             ],
-            correctAnswer: ['first  var', 'third var']
+            correctAnswer: ['second var']
           }
         ]
       }
@@ -440,13 +440,13 @@ const initState = {
           },  
           {
             type: 'checkbox', 
-            question: 'who is Jesus?',
+            question: 'What value lays in the middle?',
             answer: [
               'first  var',
               'second var', 
               'third var'
             ],
-            correctAnswer: ['first  var', 'third var']
+            correctAnswer: ['second var']
           }
         ]
       },
@@ -469,13 +469,13 @@ const initState = {
           },  
           {
             type: 'checkbox', 
-            question: 'who is Jesus?',
+            question: 'What value lays in the middle?',
             answer: [
               'first  var',
               'second var', 
               'third var'
             ],
-            correctAnswer: ['first  var', 'third var']
+            correctAnswer: ['second var']
           }
         ]
       }

@@ -25,10 +25,10 @@ const Header = (props) => (
         <input className="header__reset" type="reset" 
           onClick={props.handleReset} value={"\u2715"} />
       </form>
-      {/*<a className="header__login link" href="Login">Войти</a>*/}
       <input className="header__login link" 
         onClick={() => props.history.push("/Tests")} 
         type="submit"
+        value="submit"
       />
     </div>
   </header>
