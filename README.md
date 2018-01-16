@@ -20,14 +20,17 @@ Powered by ReactJS
 # To check the project functionality: 
 Run in Development
 ```
-npm run dev
+cd testapp
+npm start
+
 ```
 or 
 
 Run in Production
 ```
+cd testapp
 npm run build
-npm run prod
+
 ```
 
 Log in with the next credentials:
