@@ -1,9 +1,8 @@
 # Knowledge testing system 
 
 This project was made according to requirements stated in Final Project Task document.
-Project theme: Knowledge testing system.
+
 Powered by ReactJS
-This project was bootstrapped with [Create React App].
 
 # Features:
 - user login functionality
@@ -32,7 +31,9 @@ npm run prod
 ```
 
 Log in with the next credentials:
+
 Login: warrior
+
 Password: password
 
 Chose JavaScript Basics test on a Tests Catalog Page.
