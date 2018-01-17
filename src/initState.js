@@ -3,8 +3,8 @@ const initState = {
     {
       userId: 1,
       userIsAdmin: 'false',
-      userLogin: '1',
-      userPass: '1',
+      userLogin: 'warrior',
+      userPass: 'password',
       userName: 'Black Warrior',
       userTests: [
         {
