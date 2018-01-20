@@ -1,8 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 const Menu = (props) => {
-  return (
+  
+  return (    
     <nav className="menucontainer">
       <ul className="navbar">
         <li className="navbar__topitem">
@@ -67,5 +69,10 @@ const Menu = (props) => {
     </nav>
   );
 }
+
+Menu.propTypes = {
+  authUserId: PropTypes.number.isRequired,
+  handleLogout: PropTypes.func.isRequired,
+};
 
 export default Menu;

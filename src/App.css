@@ -390,6 +390,54 @@
   font-size: 1em;
 }
 
+/*User Home Page*/
+.homepage {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.homepage__testreportcont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #dad0d0;
+  border-radius: 4px;
+  /* width: 90%; */
+  min-width: 300px;
+  /* margin: 5px; */
+  padding: 5px;
+}
+
+.homepage__testreport {
+  margin: 5px 0 5px 0;
+  border: 2px solid #f8f8f8;
+  background-color: #f8f8f8;
+  border-radius: 4px;
+  width: 90%;
+  padding: 5px;
+}
+
+.homepage__greeting {
+  font-size: 1.5em;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.homepage__heading {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+homepage__testname {
+  display: inline-block;
+  font-weight: 800;
+  text-align: center;
+}
+
 /* Gallery styling - TO ADD MASONRY*/
 .gallery {
   margin-top: 10px;

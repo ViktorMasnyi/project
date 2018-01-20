@@ -296,7 +296,7 @@ const initState = {
       { 
         nameId: 6,
         name: 'Quality Assurance Basics',
-        timeLimit: 900, 
+        timeLimit: 10, 
         minTestScore: 0.7,
         imageUrl: 'img/qa-start-icon.png',
         questions: [ 
