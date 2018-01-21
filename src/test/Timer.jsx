@@ -35,11 +35,9 @@ class Timer extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('nextProps', nextProps);
-    if (nextProps!==this.props&&nextProps.isOver) {
-      this.props.getTimerValue(this.state.seconds);
-      clearInterval(this.timer);
-      console.log('timer value TimerComp', this.state.seconds);    
+    if (nextProps.isOver !== this.props.isOver && nextProps.isOver) {
+      this.props.getTimerValue(this.secondsToTime(this.props.timeLimit - this.state.seconds));
+      clearInterval(this.timer);   
     }    
   }
 

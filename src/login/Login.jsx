@@ -23,9 +23,9 @@ class Login extends Component {
           autoComplete="off"
         >
           <label className="loginpage__label" htmlFor="login">login</label>
-          <input className="loginpage__item"  name="login" type="text" />
+          <input className="loginpage__item"  name="login" type="text" tabIndex="1" />
           <label className="loginpage__label" htmlFor="password">password</label>
-          <input className="loginpage__item" name="password" type="password" />
+          <input className="loginpage__item" name="password" type="password" tabIndex="2" />
           <input className="loginpage__button" value="Login" type="submit" />
           {/* <a className="link" href="Login/Signup">signup</a> */}
         </form>

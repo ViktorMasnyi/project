@@ -75,19 +75,17 @@ class Test extends Component {
     this.props.updateUserStats(
       this.state.testStatus,
       this.state.targetTest.nameId,
-      this.state.targetTest.name
+      this.state.targetTest.name,
+      this.state.timeLeft
     )
     this.props.history.push('/UserHomePage');
   };
 
   getTimerValue = (timeToTestEnd) => {
-    console.log('timer value TestComp', timeToTestEnd);
-    this.setState({timeLeft: timeToTestEnd});
-    
+    this.setState({timeLeft: timeToTestEnd});    
   };
 
   render () {
-    // console.log('timer value', this.state.timeLeft)
     let targetTest = this.state.targetTest;    
     let answers = this.state.activeQuestion.type
     ? <Answers 

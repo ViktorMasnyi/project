@@ -84,7 +84,7 @@ class App extends Component {
     this.setState({authUserId: 0});
   };
 
-  updateUserStats = (testStatus, testId, testName) => {
+  updateUserStats = (testStatus, testId, testName, timeLeft) => {
     let authUserTests = this.state.authUserProps.userTests;
     let testUpdate = {};
     for (let i = 0; i < authUserTests.length; i++) {
@@ -93,6 +93,7 @@ class App extends Component {
         testUpdate.name = testName;
         testUpdate.testAttempts = authUserTests[i].testAttempts + 1;
         testUpdate.testStatus = testStatus;
+        testUpdate.testTimeSpent = timeLeft;
         testUpdate.testDate = new Date().toLocaleString();
         authUserTests[i] = testUpdate;
         this.forceUpdate();
@@ -104,7 +105,8 @@ class App extends Component {
       name: testName,
       testAttempts: 1,
       testDate: new Date().toLocaleString(),
-      testStatus: testStatus
+      testStatus: testStatus,
+      testTimeSpent: timeLeft
     });
     this.forceUpdate();
     return true;      
