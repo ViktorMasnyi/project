@@ -42,3 +42,4 @@ Password: password
 Chose JavaScript Basics test on a Tests Catalog Page.
 
 Enjoy!
+

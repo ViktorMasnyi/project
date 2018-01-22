@@ -19,12 +19,14 @@ class Test extends Component {
       userAnswers: {},
       testStatus: 'fail',
       isOver: false,
-      targetTest: testMatch
+      targetTest: testMatch,
+      timeLeft: 0
     };
     this.handleActiveQuestion = this.handleActiveQuestion.bind(this); 
     this.handleActiveQuestionAnswer = this.handleActiveQuestionAnswer.bind(this);     
     this.handleFinishTest = this.handleFinishTest.bind(this);
     this.handleAlertClick = this.handleAlertClick.bind(this);
+    this.getTimerValue = this.getTimerValue.bind(this);
   };
 
   handleActiveQuestion = (question, id) => {
@@ -73,10 +75,15 @@ class Test extends Component {
     this.props.updateUserStats(
       this.state.testStatus,
       this.state.targetTest.nameId,
-      this.state.targetTest.name
+      this.state.targetTest.name,
+      this.state.timeLeft
     )
     this.props.history.push('/UserHomePage');
-  }
+  };
+
+  getTimerValue = (timeToTestEnd) => {
+    this.setState({timeLeft: timeToTestEnd});    
+  };
 
   render () {
     let targetTest = this.state.targetTest;    
@@ -90,7 +97,7 @@ class Test extends Component {
     : null;
 
     return (      
-      <main className="main">
+      <main className="main">        
       {
         (this.props.authUserId > 0)
         ? <div className="test__container">
@@ -99,10 +106,13 @@ class Test extends Component {
               <Timer 
                 timeLimit={targetTest.timeLimit}
                 startTimer={this.state.activeQuestion.type}
-                handleFinishTest={this.handleFinishTest}
+                handleFinishTest={this.handleFinishTest}                
+                getTimerValue={this.getTimerValue}
                 isOver={this.state.isOver}
               />
-              <button onClick={this.handleFinishTest} value="end test" children="END TEST"/>
+              <button onClick={this.handleFinishTest} value="end test">
+                END TEST
+              </button>
             </div>
             <div className="test__questions">
               {

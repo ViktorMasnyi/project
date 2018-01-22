@@ -14,7 +14,7 @@ const initState = {
           testDate: '',
           testStatus: 'pass', // last test status
           testAttempts: 2,
-          testTimeSpent: '300'  // in seconds
+          testTimeSpent: {h: '00', m: '05', s: '05'}  
         },
         {
           testTopicId: 0,
@@ -23,7 +23,7 @@ const initState = {
           testDate: '',
           testStatus: 'fail',
           testAttempts: 1,
-          testTimeSpent: 300  // in seconds
+          testTimeSpent: {h: '00', m: '10', s: '07'} 
         },
       ],
     }
@@ -296,7 +296,7 @@ const initState = {
       { 
         nameId: 6,
         name: 'Quality Assurance Basics',
-        timeLimit: 900, 
+        timeLimit: 10, 
         minTestScore: 0.7,
         imageUrl: 'img/qa-start-icon.png',
         questions: [ 

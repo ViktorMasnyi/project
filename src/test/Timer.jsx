@@ -34,6 +34,13 @@ class Timer extends React.Component {
     this.setState({ time: timeLeftVar });
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.isOver !== this.props.isOver && nextProps.isOver) {
+      this.props.getTimerValue(this.secondsToTime(this.props.timeLimit - this.state.seconds));
+      clearInterval(this.timer);   
+    }    
+  }
+
   startTimer() {
     if (this.timer === 0) {
       this.timer = setInterval(this.countDown, 1000);
@@ -53,14 +60,14 @@ class Timer extends React.Component {
     });
     
     // Check if we're at zero.
-    if (seconds === 0) { 
-      clearInterval(this.timer);
+    if (seconds === 0) {
       this.props.handleFinishTest();
+      clearInterval(this.timer);      
     }
   }
 
   render() {
-    if (this.props.isOver) clearInterval(this.timer);
+    // if (this.props.isOver) clearInterval(this.timer);
     this.props.startTimer && this.startTimer();
     return(
       <div>        
