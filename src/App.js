@@ -27,12 +27,7 @@ class App extends Component {
     this.state.authUserProps = {};
     this.state.foundTests = [];
     this.state.foundGroups = [];
-    this.state.isSearchActive = false;       
-    this.handleSearch = this.handleSearch.bind(this);
-    this.handleReset = this.handleReset.bind(this);
-    this.handleLogin = this.handleLogin.bind(this);
-    this.handleLogout = this.handleLogout.bind(this);
-    this.updateUserStats = this.updateUserStats.bind(this);
+    this.state.isSearchActive = false;
   };
 
   handleSearch = (searchStr, isSearchActive) => {
